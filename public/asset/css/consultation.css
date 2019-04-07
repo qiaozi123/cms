@@ -1,0 +1,60 @@
+.top-infor-div {
+	background-color: #fff;
+	box-shadow: 0 0  4px #a3a8b2;
+	width: 330px;
+	height: 410px;
+	padding: 20px;
+}
+
+.top-h2 {
+	line-height: 55px;
+	text-align: center;
+	color: #000;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.top-textarea {
+	width: 290px;
+	height: 120px;
+	resize: none;
+	padding: 9px;
+	border: 1px solid #ccc;
+	border-radius:6px;
+}
+
+.top-input {
+	width: 290px;
+	height: 36px;
+	padding-left: 10px;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	border-radius:6px;
+}
+
+.top-apply {
+	color: #fff;
+	font-size: 18px;
+	border-radius: 4px;
+	background-color: #3db8a8;
+	text-align: center;
+	line-height: 40px;
+	height: 40px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.top-p1 {
+	font-size: 16px;
+	color: #ff6262;
+	text-align: center;
+	margin-top: 20px;
+	line-height: 25px;
+}
+
+.top-p2 {
+	font-size: 16px;
+	color: #ff6262;
+	text-align: center;
+	line-height: 25px;
+}

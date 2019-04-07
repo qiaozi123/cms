@@ -1,0 +1,150 @@
+body {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #eff3f5;
+}
+
+
+.content {
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	background-color: #eff3f5;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: "微软雅黑";
+	outline: none;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+	height: 100%;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+}
+
+.list-blank {
+	height: 270px;
+	width: 100%;
+	background-image: url(../img/kong_morentu.png);
+	background-repeat: no-repeat;
+	background-position: center 30px;
+}
+
+.list-blank p {
+	display: block;
+	padding-top: 222px;
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ul li, ol li {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	outline: none;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: #fff;
+}
+
+.star {
+	height: 14px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 94px;
+}
+
+h1 {
+	font-size: 30px;
+	color: #000;
+	line-height: 55px;
+	font-weight: 500;
+}
+
+.star-05 {
+	background: url(../img/xingxing2.png) no-repeat 0 0px;
+}
+
+.star-04 {
+	background: url(../img/xingxing2.png) no-repeat 0 -14px;
+}
+
+.star-03 {
+	background: url(../img/xingxing2.png) no-repeat 0 -28px;
+}
+
+.star-02 {
+	background: url(../img/xingxing2.png) no-repeat 0 -42px;
+}
+
+.star-01 {
+	background: url(../img/xingxing2.png) no-repeat 0 -66px;
+}
+
+.star-00 {
+	background: url(../img/xingxing2.png) no-repeat 0 -80px;
+}

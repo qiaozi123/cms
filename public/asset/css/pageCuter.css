@@ -1,0 +1,94 @@
+body {
+  font-family: SourceHanSansCN-Normal, 'Microsoft yahei', tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+}
+.content {
+  clear: both;
+}
+.accessory-article-list {
+  background: #fff;
+  width: 330px;
+  -webkit-box-shadow: 0 0 4px #a3a8b2;
+          box-shadow: 0 0 4px #a3a8b2;
+}
+.accessory-article-list .unit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 290px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+.accessory-article-list .unit:last-child {
+  border-bottom: none;
+}
+.accessory-article-list .unit:hover {
+  color: #4e4e4e;
+}
+.accessory-article-list .unit .num {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: #3db8a8;
+  border-radius: 50%;
+  line-height: 24px;
+  text-align: center;
+  color: #fff;
+}
+.accessory-article-list .unit .titleOfarticle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: block;
+  margin-left: 20px;
+  font-size: 18px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pageCuter {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.pageCuter .leftArrow,
+.pageCuter .pages,
+.pageCuter .more,
+.pageCuter .rightArrow {
+  -webkit-box-shadow: 0 0 4px #a3a8b2;
+          box-shadow: 0 0 4px #a3a8b2;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../img/jiantou.png);
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color: #000;
+}
+.pageCuter .pages {
+  background-image: none;
+}
+.pageCuter .pages.selected {
+  background: #3db8a8;
+  color: #fff;
+}
+.pageCuter .more {
+  background-image: none;
+}
+.pageCuter .rightArrow {
+  background-image: url(../img/jiantou2.png);
+}
