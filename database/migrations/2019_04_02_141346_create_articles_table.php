@@ -22,6 +22,7 @@ class CreateArticlesTable extends Migration
             $table->string('avatar');
             $table->text('content');
             $table->integer('belongto');
+            $table->integer('show');
             $table->timestamps();
         });
     }

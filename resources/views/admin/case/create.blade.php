@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>新增设计师</title>
+    <title>创建文章</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -21,7 +21,7 @@
         {{csrf_field()}}
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>姓名
+                <span class="x-red">*</span>标题
             </label>
             <div class="layui-input-inline">
                 <input type="text"  name="name" required="" lay-verify="required"
@@ -31,10 +31,10 @@
         </div>
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>职位
+                <span class="x-red">*</span>关键词
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="job" required="" lay-verify="required"
+                <input type="text"  name="keyword" required="" lay-verify="required"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -42,68 +42,20 @@
 
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>工作时长
+                <span class="x-red">*</span>作者
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="jobage" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>作品风格
-            </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="style" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>所属工作室
-            </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="studio" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>设计费用
-            </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="price" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>理念
-            </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="dream" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>是否展现在首页
-            </label>
-            <div class="layui-input-inline">
-                <select  name="level" class="valid">
-                    <option value="1">展示</option>
-                    <option value="0">不展示</option>
+                <select  name="author" class="valid">
+                    <option value="佚名">佚名</option>
+                    <option value="佚名">admin</option>
+                    <option value="佚名">小张</option>
                 </select>
             </div>
         </div>
 
+
         <div class="layui-upload">
-            <button type="button" class="layui-btn" id="test2">头像上传</button>
+            <button type="button" class="layui-btn" id="test2">封面图上传</button>
             <input type="text"  name="avatar" value=""  id="avatar" style="display: none;" required="" lay-verify="required"
                    autocomplete="off" class="layui-input">
             <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
@@ -119,7 +71,7 @@
                 //多图片上传
                 upload.render({
                     elem: '#test2'
-                    ,url: '/admin/upload/designer/'
+                    ,url: '/admin/upload/avatar/'
                     ,data: {'_token':'{{csrf_token()}}'}
                     ,multiple: true
                     ,before: function(obj){
@@ -136,8 +88,21 @@
 
             });
         </script>
+        <a class="layui-btn layui-btn-small" style="line-height:1.6em;float:right" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon" style="line-height:30px">ဂ</i>
+        </a>
 
 
+
+        @include('UEditor::head')
+        <script id="container" name="content" type="text/plain">
+
+</script>
+
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var ue = UE.getEditor('container');
+        </script>
         </tbody>
         </table>
 
@@ -147,7 +112,7 @@
             <label for="L_repass" class="layui-form-label">
             </label>
             <button class="layui-btn" lay-filter="add" lay-submit="">
-                确认增加设计师
+                确认添加文章
             </button>
         </div>
     </form>
@@ -162,7 +127,7 @@
             console.log(data.field);
             $.ajax({
                 type:"post",//type可以为post也可以为get
-                url:"/admin/designer/create",
+                url:"/admin/article/list/create",
                 data:data.field,//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
                 dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
                 async:false,

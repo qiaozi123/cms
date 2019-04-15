@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\CaseType;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

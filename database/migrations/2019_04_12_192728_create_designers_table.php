@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleleTeamsTable extends Migration
+class CreateDesignersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateArticleleTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('articlele_teams', function (Blueprint $table) {
+        Schema::create('designers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('en_name');
+            $table->string('job');
+            $table->string('avatar');
+            $table->string('job_age');
+            $table->string('style');
+            $table->string('studio');
+            $table->string('price');
+            $table->string('dream');
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ class CreateArticleleTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articlele_teams');
+        Schema::dropIfExists('designers');
     }
 }

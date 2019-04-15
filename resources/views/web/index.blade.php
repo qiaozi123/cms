@@ -60,12 +60,24 @@
             <link rel="stylesheet" type="text/css" href="{{url('/asset/css/consultation.css')}}">
             <div class="top-infor-div">
                 <h2 class="top-h2">达人咨询服务</h2>
-                <textarea class="top-textarea" placeholder="请简单描述你想问的装修问题" name="description" maxlength="500"></textarea>
-                <input class="top-input" placeholder="请填写您的手机号码" name="mobile">
-                <div class="top-apply">免费申请</div>
+                <textarea class="top-textarea" placeholder="请简单描述你想问的装修问题" id="content" name="content" maxlength="500"></textarea>
+                <input class="top-input" placeholder="请填写您的手机号码" id="telphone" name="telphone">
+                <div class="top-apply" onclick="post()">免费申请</div>
                 <p class="top-p1">声明：绘装以保护您的隐私为己任，</p>
                 <p class="top-p2">手机号仅作提供咨询服务，请放心填写。</p>
             </div>
+            <script>
+                function post() {
+                    $.ajax({
+                        type: "POST",//规定传输方式
+                        url: "/userpost",//提交URL
+                        data: {'_token':'{{csrf_token()}}','content':$('#content').val(),'telphone':$('#telphone').val()},//提交的数据
+                        success: function(data){
+                          alert(data.msg)
+                        }
+                    });
+                }
+            </script>
             <script src="{{url('/asset/js/consultation.js')}}"></script></div>
 
          {{--装修攻略--}}
@@ -232,79 +244,26 @@
                     <div class="pm-menu">请工长</div>
                 </div>
                 <div class="role-list">
+                    @foreach(\App\Model\Designer::HeaderDesinger() as $item)
                     <div class="designer-div">
                         <div class="role-mask"></div>
                         <div class="role-infor">
-                            <div class="designer-cost">50-150元/m²</div>
+                            <div class="designer-cost">{{$item->price}}元/m²</div>
                             <div class="role-infor-div">
-                                <img class="role-small-avatar" src="/asset/images/42777_d6642e57-9610-4d85-b41d-096ce45ac3b8.jpg" alt="黄雅君">
-                                <p class="role-name">黄雅君</p>
-                                <p class="role-atelier">喜爱&amp;宅记设计工作室</p>
+                                <img class="role-small-avatar" src="{{$item->avatar}}" alt="{{$item->name}}">
+                                <p class="role-name">{{$item->name}}</p>
+                                <p class="role-atelier">{{$item->studio}}</p>
                             </div>
                         </div>
-                        <img class="designer-avatar" src="/asset/images/42777_d6642e57-9610-4d85-b41d-096ce45ac3b8.jpg" alt="黄雅君">
-                        <p class="designer-expert" title="中式,日式,北欧,其他">
-                            中式,日式,北欧,其他</p>
-                        <p class="designer-txt" title="室内设计是设计师帮助人们打造能够实现内心向往的生活方式的空间，好的设计不仅仅是一个看上去好看的空间，">室内设计是设计师帮助人们打造能够实现内心向往的生活方式的空间，好的设计不仅仅是一个看上去好看的空间，</p>
-                        <a href="http://www.huihome.cn/designer/42777.html" title="黄雅君个人主页">
+                        <img class="designer-avatar" src="{{$item->avatar}}" alt="{{$item->name}}">
+                        <p class="designer-expert" title="{{$item->style}}">
+                            {{$item->style}}</p>
+                        <p class="designer-txt" title="{{$item->dream}}">{{$item->dream}}</p>
+                        <a href="{{url('/designer'.$item->id)}}.html" title="{{$item->name}}个人主页">
                             <div class="role-go-detail">了解更多</div>
                         </a>
                     </div>
-                    <div class="designer-div">
-                        <div class="role-mask"></div>
-                        <div class="role-infor">
-                            <div class="designer-cost">50-200元/m²</div>
-                            <div class="role-infor-div">
-                                <img class="role-small-avatar" src="/asset/images/44956_0752c553-9706-4b57-b945-a813d5b49589.jpg" alt="朱贵森">
-                                <p class="role-name">朱贵森</p>
-                                <p class="role-atelier">绘升装饰工作室</p>
-                            </div>
-                        </div>
-                        <img class="designer-avatar" src="/asset/images/44956_0752c553-9706-4b57-b945-a813d5b49589.jpg" alt="朱贵森">
-                        <p class="designer-expert" title="现代,美式,北欧">
-                            现代,美式,北欧</p>
-                        <p class="designer-txt" title="每个作品都是有灵魂的，希望每个都有一个温馨的家。">每个作品都是有灵魂的，希望每个都有一个温馨的家。</p>
-                        <a href="http://www.huihome.cn/designer/44956.html" title="朱贵森个人主页">
-                            <div class="role-go-detail">了解更多</div>
-                        </a>
-                    </div>
-                    <div class="designer-div">
-                        <div class="role-mask"></div>
-                        <div class="role-infor">
-                            <div class="designer-cost">200-200元/m²</div>
-                            <div class="role-infor-div">
-                                <img class="role-small-avatar" src="/asset/images/41440_f36b045e-f542-4f2a-88de-8187321f0993.jpg" alt="文博">
-                                <p class="role-name">文博</p>
-                                <p class="role-atelier">湖南创捷装饰</p>
-                            </div>
-                        </div>
-                        <img class="designer-avatar" src="/asset/images/41440_f36b045e-f542-4f2a-88de-8187321f0993.jpg" alt="文博">
-                        <p class="designer-expert" title="现代,北欧,混搭,欧式">
-                            现代,北欧,混搭,欧式</p>
-                        <p class="designer-txt" title="若有光芒，必有远方。">若有光芒，必有远方。</p>
-                        <a href="http://www.huihome.cn/designer/41440.html" title="文博个人主页">
-                            <div class="role-go-detail">了解更多</div>
-                        </a>
-                    </div>
-                    <div class="designer-div">
-                        <div class="role-mask"></div>
-                        <div class="role-infor">
-                            <div class="designer-cost">30-50元/m²</div>
-                            <div class="role-infor-div">
-                                <img class="role-small-avatar" src="/asset/images/40350_0edd91e9-6b1a-4e2b-955b-8b3d11a2552c.jpg" alt="董文洁">
-                                <p class="role-name">董文洁</p>
-                                <p class="role-atelier">刘洪空间设计事务所</p>
-                            </div>
-                        </div>
-                        <img class="designer-avatar" src="/asset/images/40350_0edd91e9-6b1a-4e2b-955b-8b3d11a2552c.jpg" alt="董文洁">
-                        <p class="designer-expert" title="现代,北欧">
-                            现代,北欧</p>
-                        <p class="designer-txt" title="做有温度的设计">做有温度的设计</p>
-                        <a href="http://www.huihome.cn/designer/40350.html" title="董文洁个人主页">
-                            <div class="role-go-detail">了解更多</div>
-                        </a>
-                    </div>
-                </div>
+                    @endforeach
                 <div class="designer-other-div" data-cate="0" data-dindex="1" data-pindex="0">
                     <img src="/asset/images/huanyihuan.png" alt="换一批"> <span>换一批</span>
                 </div>
@@ -315,44 +274,6 @@
                    时间：2017-07-10
                    描述：家具商城
             -->
-            <div>
-                <div class="shop-title">
-                    <h1>家居商城</h1>
-                    <a href="http://www.huihome.cn/mall" title="查看更多活动">
-                        <p class="shop-title-more">查看更多&gt;&gt;</p>
-                    </a>
-                </div>
-                <div class="shop-list">
-                    <a href="http://www.huihome.cn/mall/147.html" title="【长期团】晾霸电动晾衣架全网最低！底价还返现~居家达人必备晾衣神器！">
-                        <div class="shop-div">
-                            <img src="/asset/images/MER_PROMOTION_09cb1608-bf60-44f3-af84-f989172da9d7.jpg" alt="【长期团】晾霸电动晾衣架全网最低！底价还返现~居家达人必备晾衣神器！">
-                            <div></div>
-                            <p>【长期团】晾霸电动晾衣架全网最低！底价还返现~居家达人必备晾衣神器！</p>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/mall/281.html" title="【截至3.17】巴迪斯高品质吊顶！一厨两卫套餐4380，大额优惠券来袭">
-                        <div class="shop-div">
-                            <img src="/asset/images/MER_PROMOTION_5684725a-cd9c-41ee-9bc6-b4e8fb50fb42.png" alt="【截至3.17】巴迪斯高品质吊顶！一厨两卫套餐4380，大额优惠券来袭">
-                            <div></div>
-                            <p>【截至3.17】巴迪斯高品质吊顶！一厨两卫套餐4380，大额优惠券来袭</p>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/mall/262.html" title="【截至12.31】日立中央空调绘装首团！年底冲量钜惠保全年">
-                        <div class="shop-div">
-                            <img src="/asset/images/MER_PROMOTION_2f675c88-f56a-405e-8dce-ce3220258267.png" alt="【截至12.31】日立中央空调绘装首团！年底冲量钜惠保全年">
-                            <div></div>
-                            <p>【截至12.31】日立中央空调绘装首团！年底冲量钜惠保全年</p>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/mall/257.html" title="【品牌聚惠】10月跟着绘装买这些更省钱！嘉宝+林内+梦天+陶泽+顺辉+安博">
-                        <div class="shop-div">
-                            <img src="/asset/images/MER_PROMOTION_afb364c9-e377-44dc-b8d9-834e6dca0a81.jpg" alt="【品牌聚惠】10月跟着绘装买这些更省钱！嘉宝+林内+梦天+陶泽+顺辉+安博">
-                            <div></div>
-                            <p>【品牌聚惠】10月跟着绘装买这些更省钱！嘉宝+林内+梦天+陶泽+顺辉+安博</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
 
             <!--
                   作者：403571264@qq.com
@@ -364,210 +285,11 @@
                     <h1>品牌墙</h1>
                 </div>
                 <div class="brand-list">
-                    <a href="http://www.huihome.cn/merchant/3.html" title="菲林格尔（vöhringer）">
-                        <img src="/asset/images/pinpai3.png" alt="菲林格尔（vöhringer）">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/55.html" title="梦天木门">
-                        <img src="/asset/images/pinpai55.png" alt="梦天木门">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/51.html" title="恒洁卫浴（万家丽店）">
-                        <img src="/asset/images/pinpai51.png" alt="恒洁卫浴（万家丽店）">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/50.html" title="板川安全集成灶">
-                        <img src="/asset/images/pinpai50.png" alt="板川安全集成灶">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/47.html" title="嘉宝厨柜•衣柜">
-                        <img src="/asset/images/pinpai47.png" alt="嘉宝厨柜•衣柜">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/8.html" title="巴迪斯吊顶南红星店">
-                        <img src="/asset/images/pinpai8.png" alt="巴迪斯吊顶南红星店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/9.html" title="派格嘉橱柜">
-                        <img src="/asset/images/pinpai9.png" alt="派格嘉橱柜">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/63.html" title="舒逸冷暖中央空调">
-                        <img src="/asset/images/pinpai63.png" alt="舒逸冷暖中央空调">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/60.html" title="挪亚家家居">
-                        <img src="/asset/images/pinpai60.png" alt="挪亚家家居">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/57.html" title="煜景门窗厂家直销">
-                        <img src="/asset/images/pinpai57.png" alt="煜景门窗厂家直销">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/54.html" title="安博智能科技">
-                        <img src="/asset/images/pinpai54.png" alt="安博智能科技">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/28.html" title="卓高(帝斯固)美缝">
-                        <img src="/asset/images/pinpai28.png" alt="卓高(帝斯固)美缝">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/22.html" title="晾霸智能电动晾衣架">
-                        <img src="/asset/images/pinpai22.png" alt="晾霸智能电动晾衣架">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/5.html" title="英国邓禄普床垫">
-                        <img src="/asset/images/pinpai5.png" alt="英国邓禄普床垫">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/6.html" title="路过麦田窗帘软装">
-                        <img src="/asset/images/pinpai6.png" alt="路过麦田窗帘软装">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/56.html" title="豪迪匠心全屋定制">
-                        <img src="/asset/images/pinpai56.png" alt="豪迪匠心全屋定制">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/86.html" title="冠珠陶瓷">
-                        <img src="/asset/images/pinpai86.png" alt="冠珠陶瓷">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/84.html" title="昱信暖通舒适家居">
-                        <img src="/asset/images/pinpai84.png" alt="昱信暖通舒适家居">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/77.html" title="测试">
-                        <img src="/asset/images/pinpai77.png" alt="测试">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/83.html" title="惠一美家家居">
-                        <img src="/asset/images/pinpai83.png" alt="惠一美家家居">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/82.html" title="康麦森地板">
-                        <img src="/asset/images/pinpai82.png" alt="康麦森地板">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/81.html" title="意大利萨铂艺术涂料">
-                        <img src="/asset/images/pinpai81.png" alt="意大利萨铂艺术涂料">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/80.html" title="湖南置湘机电设备有限公司">
-                        <img src="/asset/images/pinpai80.png" alt="湖南置湘机电设备有限公司">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/79.html" title="绿米智能家居体验馆">
-                        <img src="/asset/images/pinpai79.png" alt="绿米智能家居体验馆">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/78.html" title="长沙卓高美缝">
-                        <img src="/asset/images/pinpai78.png" alt="长沙卓高美缝">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/75.html" title="湖南斌宇建材贸易有限公司">
-                        <img src="/asset/images/pinpai75.png" alt="湖南斌宇建材贸易有限公司">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/74.html" title="锦尚全屋定制">
-                        <img src="/asset/images/pinpai74.png" alt="锦尚全屋定制">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/73.html" title="印博文化">
-                        <img src="/asset/images/pinpai73.png" alt="印博文化">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/72.html" title="格林世家">
-                        <img src="/asset/images/pinpai72.png" alt="格林世家">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/71.html" title="喜柚智能厨电&amp;威莫进口家电">
-                        <img src="/asset/images/pinpai71.png" alt="喜柚智能厨电&amp;威莫进口家电">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/70.html" title="小沐头智造">
-                        <img src="/asset/images/pinpai70.png" alt="小沐头智造">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/69.html" title="长沙富之豪窗帘店">
-                        <img src="/asset/images/pinpai69.png" alt="长沙富之豪窗帘店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/68.html" title="天蓝舒适家">
-                        <img src="/asset/images/pinpai68.png" alt="天蓝舒适家">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/67.html" title="罗莱家纺祁阳店">
-                        <img src="/asset/images/pinpai67.png" alt="罗莱家纺祁阳店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/66.html" title="亮阁门窗长沙百纳店">
-                        <img src="/asset/images/pinpai66.png" alt="亮阁门窗长沙百纳店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/65.html" title="梵品免漆木皮涂装板长沙店">
-                        <img src="/asset/images/pinpai65.png" alt="梵品免漆木皮涂装板长沙店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/64.html" title="优派门窗">
-                        <img src="/asset/images/pinpai64.png" alt="优派门窗">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/62.html" title="陶泽门窗">
-                        <img src="/asset/images/pinpai62.png" alt="陶泽门窗">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/61.html" title="施丹顶墙全房定制">
-                        <img src="/asset/images/pinpai61.png" alt="施丹顶墙全房定制">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/59.html" title="3M净水旗舰店">
-                        <img src="/asset/images/pinpai59.png" alt="3M净水旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/58.html" title="欧琳水槽旗舰店">
-                        <img src="/asset/images/pinpai58.png" alt="欧琳水槽旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/53.html" title="顺辉瓷砖">
-                        <img src="/asset/images/pinpai53.png" alt="顺辉瓷砖">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/52.html" title="冠禹艺术涂料">
-                        <img src="/asset/images/pinpai52.png" alt="冠禹艺术涂料">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/34.html" title="星湖伟业家居专营店">
-                        <img src="/asset/images/pinpai34.png" alt="星湖伟业家居专营店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/40.html" title="viborg旗舰店">
-                        <img src="/asset/images/pinpai40.png" alt="viborg旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/39.html" title="沃夫伍德旗舰店">
-                        <img src="/asset/images/pinpai39.png" alt="沃夫伍德旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/48.html" title="绘装&amp;锐范德软装搭配">
-                        <img src="/asset/images/pinpai48.png" alt="绘装&amp;锐范德软装搭配">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/46.html" title="领家颜选日系家居馆">
-                        <img src="/asset/images/pinpai46.png" alt="领家颜选日系家居馆">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/45.html" title="Krono（柯诺）原装进口地板">
-                        <img src="/asset/images/pinpai45.png" alt="Krono（柯诺）原装进口地板">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/44.html" title="GIA极简大理石瓷砖">
-                        <img src="/asset/images/pinpai44.png" alt="GIA极简大理石瓷砖">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/42.html" title="editor01 生活家居">
-                        <img src="/asset/images/pinpai42.png" alt="editor01 生活家居">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/36.html" title="吉事多卫浴">
-                        <img src="/asset/images/pinpai36.png" alt="吉事多卫浴">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/33.html" title="优活臻品专卖店">
-                        <img src="/asset/images/pinpai33.png" alt="优活臻品专卖店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/32.html" title="泽凡诺旗舰店">
-                        <img src="/asset/images/pinpai32.png" alt="泽凡诺旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/31.html" title="qinxn旗舰店">
-                        <img src="/asset/images/pinpai31.png" alt="qinxn旗舰店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/30.html" title="美家美户无缝墙布">
-                        <img src="/asset/images/pinpai30.png" alt="美家美户无缝墙布">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/27.html" title="返必克地漏">
-                        <img src="/asset/images/pinpai27.png" alt="返必克地漏">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/26.html" title="优冠金门">
-                        <img src="/asset/images/pinpai26.png" alt="优冠金门">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/25.html" title="森奥家具">
-                        <img src="/asset/images/pinpai25.png" alt="森奥家具">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/24.html" title="德贝橱柜">
-                        <img src="/asset/images/pinpai24.png" alt="德贝橱柜">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/23.html" title="雷拓移门衣柜">
-                        <img src="/asset/images/pinpai23.png" alt="雷拓移门衣柜">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/21.html" title="德国鲸彩漆长沙店">
-                        <img src="/asset/images/pinpai21.png" alt="德国鲸彩漆长沙店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/13.html" title="蒂伊国际软装家居">
-                        <img src="/asset/images/pinpai13.png" alt="蒂伊国际软装家居">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/15.html" title="VOC指纹锁">
-                        <img src="/asset/images/pinpai15.png" alt="VOC指纹锁">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/16.html" title="绘装官方活动中心">
-                        <img src="/asset/images/pinpai16.png" alt="绘装官方活动中心">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/11.html" title="美享家灯饰荟红星灯世界店">
-                        <img src="/asset/images/pinpai11.png" alt="美享家灯饰荟红星灯世界店">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/12.html" title="方太厨电">
-                        <img src="/asset/images/pinpai12.png" alt="方太厨电">
-                    </a>
-                    <a href="http://www.huihome.cn/merchant/10.html" title="蓝光门窗安居乐店">
-                        <img src="/asset/images/pinpai10.png" alt="蓝光门窗安居乐店">
-                    </a>
+                 @foreach(\App\Model\Brands::all() as $item)
+                    <a href="{{url('/merchant/'.$item->id)}}" title="{{$item->name}}">
+                        <img src="{{url($item->img_url)}}" alt="{{$item->nae}}">
+                    </a>
+                     @endforeach
                 </div>
             </div>
 
@@ -577,21 +299,9 @@
                    描述：SEO优化
             -->
             <div class="index-SEO">
-                <a title="软装搭配，一篇就让你心领神会" href="http://www.huihome.cn/guide/3600.html"><span>软装搭配，一篇就让你心领神会</span></a>
-                <a title="台风暴雨袭击不是事!小编奉上家装防御技能" href="http://www.huihome.cn/guide/978.html"><span>台风暴雨袭击不是事!小编奉上家装防御技能</span></a>
-                <a title="【绘客室】第7期：从游击队到专业施工团队，一句话改变了她" href="http://www.huihome.cn/guide/1374.html"><span>【绘客室】第7期：从游击队到专业施工团队，一句话改变了她</span></a>
-                <a title="“花”点时间，提升夏日生活的幸福感" href="http://www.huihome.cn/guide/3635.html"><span>“花”点时间，提升夏日生活的幸福感</span></a>
-                <a title="1000块的床垫和10000块的床垫区别在哪儿？" href="http://www.huihome.cn/guide/1415.html"><span>1000块的床垫和10000块的床垫区别在哪儿？</span></a>
-                <a title="给家来点儿新鲜感" href="http://www.huihome.cn/guide/3609.html"><span>给家来点儿新鲜感</span></a>
-                <a title="【绘客室】第1期：跨越1000多公里的母爱" href="http://www.huihome.cn/guide/1357.html"><span>【绘客室】第1期：跨越1000多公里的母爱</span></a>
-                <a title="关于家电的选择心得分享，且看设计师的家是如何选择的！" href="http://www.huihome.cn/guide/1113.html"><span>关于家电的选择心得分享，且看设计师的家是如何选择的！</span></a>
-                <a title="相比壁挂式空调，你家是不是更合适中央空调？" href="http://www.huihome.cn/guide/1050.html"><span>相比壁挂式空调，你家是不是更合适中央空调？</span></a>
-                <a title="【材料选择】从环保角度如何选择家装板材?" href="http://www.huihome.cn/guide/52.html"><span>【材料选择】从环保角度如何选择家装板材?</span></a>
-                <a title="绘装周娜：美貌与才华兼备的设计师" href="http://www.huihome.cn/guide/861.html"><span>绘装周娜：美貌与才华兼备的设计师</span></a>
-                <a title="马桶也有大学问，可不要随便选！" href="http://www.huihome.cn/guide/3720.html"><span>马桶也有大学问，可不要随便选！</span></a>
-                <a title="怎么给房屋做内科手术？家中结构改造必备" href="http://www.huihome.cn/guide/3615.html"><span>怎么给房屋做内科手术？家中结构改造必备</span></a>
-                <a title="专业人士告诉你，瓷砖为什么要美缝" href="http://www.huihome.cn/guide/1439.html"><span>专业人士告诉你，瓷砖为什么要美缝</span></a>
-                <a title="90后小情侣的温馨爱巢，设计为爱情添别样色彩！" href="http://www.huihome.cn/guide/3665.html"><span>90后小情侣的温馨爱巢，设计为爱情添别样色彩！</span></a>
+                @foreach(\App\Model\Article::Article('shouye',15) as $item)
+                <a title="{{$item->name}}" href="{{url('page/'.$item->id)}}.html"><span>{{$item->name}}</span></a>
+                @endforeach
             </div>
         </div>
     </div>

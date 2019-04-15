@@ -48,60 +48,41 @@
     <script type="text/javascript" src=".{{url('asset/js/vue-resource@1.3.4.js')}}"></script>
     <link rel="stylesheet" href=".{{url('asset/css/login.css')}}">
     <section id="VueLogin" class="layer-login-signin" style="display: none;"><div class="container"><div class="close">+</div> <div class="ivu-tabs"><div class="ivu-tabs-bar"><div class="ivu-tabs-nav-container"><div class="ivu-tabs-nav-wrap"><div class="ivu-tabs-nav-scroll"><div class="ivu-tabs-nav"><div class="ivu-tabs-ink-bar ivu-tabs-ink-bar-animated" style="display: block; width: 0px; transform: translate3d(0px, 0px, 0px);"></div> <div class="ivu-tabs-tab ivu-tabs-tab-active"><!----> 会员登录 <!----></div><div class="ivu-tabs-tab"><!----> 会员注册 <!----></div></div> <!----></div></div></div></div> <div class="ivu-tabs-content ivu-tabs-content-animated" style="transform: translateX(0%) translateZ(0px);"><div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src=".{{url('')}}/vCode" alt="登录图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 下次自动登录</label> <div class="login-btn-submit">登录</div> <p class="line"></p> <p class="tip">第三方登录</p> <div class="thirdPart"><a href="javascript:void(0);" class="qq"></a> <a href="javascript:void(0);" class="weChat"></a></div></div> <div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src=".{{url('')}}/vCode" alt="注册图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 我已看过并同意<a href="http://www.huihome.cn/case/cstyleg,area3_o_p.html" class="protocol">绘装用户协议条款</a></label> <div class="signin-btn-submit">注册</div></div></div></div> <!----></div></section>
-    <script src=".{{url('asset/js/login.js')}}"></script><div class="v-transfer-dom"><div class="ivu-modal-mask" style="display: none;"></div> <div class="ivu-modal-wrap ivu-modal-hidden"><div class="ivu-modal" style="width: 520px; display: none;"><div class="ivu-modal-content"><a class="ivu-modal-close"><i class="ivu-icon ivu-icon-ios-close-empty"></i></a> <div class="ivu-modal-header"><div class="ivu-modal-header-inner">注册成功</div></div> <div class="ivu-modal-body"><p>是否前往修改个人资料？</p></div> <div class="ivu-modal-footer"><button type="button" class="ivu-btn ivu-btn-text ivu-btn-large"><!----> <!----> <span>取消</span></button> <button type="button" class="ivu-btn ivu-btn-primary ivu-btn-large"><!----> <!----> <span>确定</span></button></div></div></div></div></div><div class="content">
+    <script src=".{{url('asset/js/login.js')}}"></script><div class="v-transfer-dom"><div class="ivu-modal-mask" style="display: none;"></div> <div class="ivu-modal-wrap ivu-modal-hidden"><div class="ivu-modal" style="width: 520px; display: none;"><div class="ivu-modal-content"><a class="ivu-modal-close"><i class="ivu-icon ivu-icon-ios-close-empty"></i></a> <div class="ivu-modal-header"><div class="ivu-modal-header-inner">注册成功</div></div> <div class="ivu-modal-body"><p>是否前往修改个人资料？</p></div> <div class="ivu-modal-footer"><button type="button" class="ivu-btn ivu-btn-text ivu-btn-large"><!----> <!----> <span>取消</span></button> <button type="button" class="ivu-btn ivu-btn-primary ivu-btn-large"><!----> <!----> <span>确定</span></button></div></div></div></div></div>
+
+    <div  style="margin-top: 130px" class="content">
         <nav class="filter">
             <input type="hidden" name="houseType" value="">
             <input type="hidden" name="decoStyle" value="styleg">
             <input type="hidden" name="houseArea" value="area3">
             <input type="hidden" name="by" value="">
             <input type="hidden" name="pageIndex" value="">
+
             <div class="type">
                 <div class="summary">户型：</div>
                 <div class="container">
-                    <a href="http://www.huihome.cn/case/c_o_p.html" class="unit selected" id="houseAll">不限</a>
-                    <a href="http://www.huihome.cn/case/chouse1_o_p.html" class="unit" id="house1">一室</a>
-                    <a href="http://www.huihome.cn/case/chouse2_o_p.html" class="unit" id="house2">二室</a>
-                    <a href="http://www.huihome.cn/case/chouse3_o_p.html" class="unit" id="house3">三室</a>
-                    <a href="http://www.huihome.cn/case/chouse4_o_p.html" class="unit" id="house4">四室及以上</a>
-                    <a href="http://www.huihome.cn/case/chouse5_o_p.html" class="unit" id="house5">别墅</a>
-                    <a href="http://www.huihome.cn/case/chouse6_o_p.html" class="unit" id="house6">其他</a>
+                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>1])->get() as $item)
+                    <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="style">
                 <div class="summary">风格：</div>
                 <div class="container">
-                    <a href="http://www.huihome.cn/case/c_o_p.html" class="unit" id="styleAll">不限</a>
-                    <a href="http://www.huihome.cn/case/cstyle1_o_p.html" class="unit" id="style1">现代</a>
-                    <a href="http://www.huihome.cn/case/cstyle2_o_p.html" class="unit" id="style2">美式</a>
-                    <a href="http://www.huihome.cn/case/cstyle3_o_p.html" class="unit" id="style3">中式</a>
-                    <a href="http://www.huihome.cn/case/cstyle5_o_p.html" class="unit" id="style5">欧式</a>
-                    <a href="http://www.huihome.cn/case/cstyle6_o_p.html" class="unit" id="style6">日式</a>
-                    <a href="http://www.huihome.cn/case/cstyle8_o_p.html" class="unit" id="style8">田园</a>
-                    <a href="http://www.huihome.cn/case/cstylea_o_p.html" class="unit" id="stylea">混搭</a>
-                    <a href="http://www.huihome.cn/case/cstyleb_o_p.html" class="unit" id="styleb">LOFT</a>
-                    <a href="http://www.huihome.cn/case/cstylef_o_p.html" class="unit" id="stylef">北欧</a>
-                    <a href="http://www.huihome.cn/case/cstyleg_o_p.html" class="unit selected" id="styleg">其他</a>
+                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>2])->get() as $item)
+                        <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
+                    @endforeach
                 </div>
             </div>
             <div class="area">
                 <div class="summary">面积：</div>
                 <div class="container">
-                    <a href="http://www.huihome.cn/case/c_o_p.html" class="unit" id="areaAll">不限</a>
-                    <a href="http://www.huihome.cn/case/carea1_o_p.html" class="unit" id="area1">≤90m²</a>
-                    <a href="http://www.huihome.cn/case/carea2_o_p.html" class="unit" id="area2">91-140m²</a>
-                    <a href="http://www.huihome.cn/case/carea3_o_p.html" class="unit selected" id="area3">141-200m²</a>
-                    <a href="http://www.huihome.cn/case/carea4_o_p.html" class="unit" id="area4">201-300m²</a>
-                    <a href="http://www.huihome.cn/case/carea5_o_p.html" class="unit" id="area5">301-400m²</a>
-                    <a href="http://www.huihome.cn/case/carea6_o_p.html" class="unit" id="area6">&gt;400m²</a>
+                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>3])->get() as $item)
+                        <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
+                    @endforeach
                 </div>
             </div>
-            <div class="condition">
-                <div class="summary">筛选条件：</div>
-                <div class="container">
-                    <a href="http://www.huihome.cn/case/c_o_p.html" class="unit selected" id="by0">按时间最近</a>
-                    <a href="http://www.huihome.cn/case/c_o1_p.html" class="unit" id="by1">按阅读最多</a>
-                </div>
-            </div>
+
         </nav>
         <section class="cards">
             <a href="http://www.huihome.cn/case/2312.html" class="card">

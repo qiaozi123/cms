@@ -16,6 +16,10 @@ Route::get('anli', 'AnliController@index');
 Route::get('gonglue', 'GonglueController@index');
 Route::get('gongzhang', 'GongzhangController@index');
 
+Route::post('userpost', 'UserController@post');
+
+
+
 
 
 /*

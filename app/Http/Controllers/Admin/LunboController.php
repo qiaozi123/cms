@@ -112,4 +112,26 @@ class LunboController extends Controller
             }
         }
     }
+
+
+    public function createmerchant(Request $request)
+    {
+        if($request -> hasFile('file')){
+            // 使用request 创建文件上传对象
+            $profile = $request -> file('file');
+            // 获取文件后缀名
+            $ext = $profile->getClientOriginalExtension();
+            // 处理文件名称
+            $temp_name = str_random(20);
+            $filename =  $temp_name.'.'.$ext;
+            $dirname = date('Ymd',time());
+            // 保存文件
+            $res = $profile -> move('./uploads/merchant/'.$dirname,$filename);
+            if (!empty($res)){
+                return response()->json(['status'=>200,'msg'=>'成功','url'=>'/uploads/merchant/'.$dirname.'/'.$filename]);
+            }else{
+                return response()->json(['status'=>500,'msg'=>'失败']);
+            }
+        }
+    }
 }

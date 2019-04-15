@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cases extends Model
 {
     //
-    protected $table = 'case';
+    protected $table = 'cases';
 
     public static function Head()
     {

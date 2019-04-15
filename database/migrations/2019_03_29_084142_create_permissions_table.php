@@ -20,7 +20,7 @@ class CreatePermissionsTable extends Migration
             $table->string('description')->nullable();
             $table->string('model')->nullable();
             $table->integer('level');
-            $table->integer('belongto');
+            $table->integer('belongto')->nullable();
             $table->string('icon');
             $table->string('type');
             $table->integer('status');

@@ -20,20 +20,20 @@ class DesignerController extends Controller
     {
         $name =  $request->input('name');
         $job =  $request->input('job');
-        $jobtime =  $request->input('jobtime');
+        $jobtime =  $request->input('jobage');
         $style=  $request->input('style');
         $studio =  $request->input('studio');
-        $desig_price =  $request->input('desig_price');
-        $ideal =  $request->input('ideal');
+        $desig_price =  $request->input('price');
+        $ideal =  $request->input('dream');
         $avatar=  $request->input('avatar');
         $articleteam = new Designer();
         $articleteam->name = $name;
         $articleteam->job = $job;
-        $articleteam->jobtime = $jobtime;
+        $articleteam->job_age = $jobtime;
         $articleteam->style = $style;
         $articleteam->studio = $studio;
-        $articleteam->desig_price = $desig_price;
-        $articleteam->ideal = $ideal;
+        $articleteam->price = $desig_price;
+        $articleteam->dream = $ideal;
         $articleteam->avatar = $avatar;
         $bool = $articleteam->save();
         if ($bool){

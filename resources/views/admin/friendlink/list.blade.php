@@ -1,30 +1,33 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>设计师申请</title>
-    <meta name="renderer" content="webkit">
+    <title>友链列表</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="{{url('css/font.css')}}">
     <link rel="stylesheet" href="{{url('css/xadmin.css')}}">
     <script type="text/javascript" src="{{url('js/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('lib/layui/layui.js')}}" charset="utf-8"></script>
+    <script src="{{url('lib/layui/layui.js')}}" charset="utf-8"></script>
     <script type="text/javascript" src="{{url('js/xadmin.js')}}"></script>
     <![endif]-->
 </head>
 
 <body>
+<script>
 
+</script>
+<div class="x-nav">
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
 <div class="x-body">
     <xblock>
-        <button class="layui-btn" onclick="x_admin_show('新增设计师','{{url('admin/designer/create')}}')"><i class="layui-icon"></i>新增设计师</button>
-        <a class="layui-btn layui-btn-small" style="line-height:1.6em;float:right" href="javascript:location.replace(location.href);" title="刷新">
-            <i class="layui-icon" style="line-height:30px">ဂ</i>
-        </a>
+        <button class="layui-btn" onclick="x_admin_show('创建友链','{{url('admin/friend/create')}}@if(!empty($belongtoid))?belongto={{$belongtoid}}@else  @endif')"><i class="layui-icon"></i>创建友链</button>
     </xblock>
-
     <table class="layui-table">
         <thead>
         <tr>
@@ -32,15 +35,8 @@
                 <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>id</th>
-            <th>姓名</th>
-            <th>封面图</th>
-            <th>职位</th>
-            <th>工作时间</th>
-            <th>设计风格</th>
-            <th>所属工作室</th>
-            <th>设计费用</th>
-            <th>理念</th>
-            <th>展示在首页？</th>
+            <th>友链名称</th>
+            <th>友链地址</th>
             <th>创建时间</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -53,23 +49,13 @@
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{$item->id}}'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{{$item->id}}</td>
-                <td><a title="当前设计师:{{$item->name}}"  onclick="x_admin_show('当前设计师:{{$item->name}}','/admin/designer/list/{{$item->id}}')" href="javascript:;">{{$item->name}}</a></td>
-                <td><img src="{{$item->avatar}}" style="width: 200px;"></td>
-                <td>{{$item->job}}</td>
-                <td>{{$item->job_age}}</td>
-                <td>{{$item->style}}</td>
-                <td>{{$item->studio}}</td>
-                <td>{{$item->price}}</td>
-                <td>{{$item->dream}}</td>
-                <td>@if($item->show)是 @else 否 @endif </td>
+                <td>{{$item->name}}</td>
+                <td>{{$item->link_url}}</td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">
-                    <a title="用户积分充值"  onclick="x_admin_show('用户:{{$item->name}}  积分充值','/user/recharge?userid={{$item->id}}')" href="javascript:;">
-                        <i class="layui-icon">&#xe642;</i>
-                    </a>
-                    <a title="修改用户权限"  onclick="x_admin_show('修改用户:{{$item->name}}  权限','/role/user/update?userid={{$item->id}}')" href="javascript:;">
-                        <i class="layui-icon">&#xe631;</i>
+                    <a title="删除"  onclick="member_del(this,{{$item->id}})" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
             </tr>
@@ -122,6 +108,27 @@
     function member_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
             //发异步删除数据
+            $.ajax({
+                type:"post",//type可以为post也可以为get
+                url:"/admin/friend/delete",
+                data:{'_token':'{{csrf_token()}}','id':id},//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
+                dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
+                async:false,
+                success:function(data){
+                    //发异步，把数据提交给php
+                    // if (data==200){
+                    layer.alert(data.msg, {icon: 6},function () {
+                        // 获得frame索引
+                        window.parent.location.reload();
+                        var index = parent.layer.getFrameIndex(window.name);
+                        //关闭当前frame
+                        parent.layer.close(index);
+                    });
+                },
+                error:function(data){
+
+                }
+            });
             $(obj).parents("tr").remove();
             layer.msg('已删除!',{icon:1,time:1000});
         });

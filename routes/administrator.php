@@ -62,6 +62,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::post('/upload/lunbo', 'LunboController@createpic');//轮播图片上传路由
     Route::post('/upload/avatar/', 'LunboController@createavatar');//文章图片上传路由
     Route::post('/upload/designer/', 'LunboController@createdesigner');//设计师图片上传路由
+    Route::post('/upload/merchant/', 'LunboController@createmerchant');//设计师图片上传路由
 
     #后台文章路由
     Route::get('article/team','ArticleController@team');
@@ -75,5 +76,39 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('designer/list','DesignerController@list');
     Route::get('designer/create','DesignerController@create');
     Route::post('designer/create','DesignerController@docreate');
+
+    #案例路由
+    Route::get('case/list','CaseController@list');
+    Route::get('case/create','CaseController@create');
+    Route::post('case/create','CaseController@docreate');
+
+    Route::get('case/list/create','CaseController@create');
+    Route::post('case/list/create','CaseController@docreate');
+
+
+
+    Route::get('case/type/list','CaseController@createlist');
+    Route::get('case/type/create','CaseController@createtype');
+    Route::post('case/type/create','CaseController@docreatetype');
+    Route::post('case/type/delete','CaseController@typedelete');
+
+    Route::get('case/type/data/list/{id}','CaseController@typedatalist');
+    Route::get('case/type/data/create/{id}','CaseController@typdatecreate');
+    Route::post('case/type/data/create','CaseController@dotypdatecreate');
+    Route::post('case/type/data/delete','CaseController@typdatedelete');
+
+
+
+    #商户路由
+    Route::get('merchant/list','MerchantController@list');
+    Route::get('merchant/create','MerchantController@create');
+    Route::post('merchant/create','MerchantController@docreate');
+    Route::post('merchant/delete','MerchantController@delete');
+
+    #友链路由
+    Route::get('friend/list','FriendLinkController@list');
+    Route::get('friend/create','FriendLinkController@create');
+    Route::post('friend/create','FriendLinkController@docreate');
+    Route::post('friend/delete','FriendLinkController@delete');
 
 });

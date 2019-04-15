@@ -67,9 +67,9 @@
         <div style="padding-top: 30px;">
             <p style="font-size: 28px; color: #000;">友情链接</p>
             <div style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
-                <a href="http://hn.qq.com/" class="menu-bottom-link">腾讯大湘网</a>
-                <a href="http://xlfdjc.com/" class="menu-bottom-link">小李飞刀甲醛检测</a>
-                <a href="http://xlfd315.com/" class="menu-bottom-link">小李飞刀验房公司</a>
+                @foreach(\App\Model\FriendLink::all() as $item)
+                <a href="{{$item->link_url}}" class="menu-bottom-link">{{$item->name}}</a>
+                @endforeach
                 <div style="clear: both;"></div>
             </div>
             <div style="display: flex; margin-top: 30px;">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\UserPost;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -52,4 +53,18 @@ class UserController extends Controller
         return view('admin.list');
     }
 
+    public function post(Request  $request)
+    {
+        $telphone = $request->input('telphone');
+        $content = $request->input('content');
+        $userpost = new UserPost();
+        $userpost->content = $content;
+        $userpost->telphone = $telphone;
+        $bool = $userpost->save();
+        if ($bool){
+            return response()->json(['msg'=>'您的需求提交成功','status'=>200]);
+        }else{
+            return response()->json(['msg'=>'提交失败','status'=>500]);
+        }
+    }
 }
