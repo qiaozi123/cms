@@ -1,0 +1,82 @@
+.evaluate-div {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+
+.evaluate-infor {
+	display: flex;
+	justify-content: space-between;
+}
+
+.evaluate-user-infor {
+	display: flex;
+	padding: 20px 0;
+}
+
+.evaluate-avatar {
+	width: 72px;
+	height: 72px;
+	border-radius: 72px;
+}
+
+.evaluate-user-name {
+	font-size: 20px;
+	color: #000;
+}
+
+.evaluate-user-date {
+	font-size: 16px;
+	color: #989898;
+	margin-top: 8px;
+}
+
+.evaluate-score {
+	font-size: 18px;
+	color: #ff8d36;
+	margin-top: 40px;
+}
+
+.evaluate-txt {
+	font-size: 16px;
+	color: #000;
+	line-height: 30px;
+}
+
+.evaluate-data-div {
+	display: flex;
+	margin: 30px 20px;
+	background-color: #f4f4f4;
+	padding: 20px;
+}
+
+.evaluate-data-div div {
+	width: 33.333333%;
+	text-align: center;
+}
+
+.evaluate-data-div div p:nth-child(1) {
+	font-size: 18px;
+	color: #000;
+}
+
+.evaluate-data-div div p:nth-child(2) {
+	font-size: 36px;
+	color: #ff8d36;
+}
+
+.evaluate-data-div div p:nth-child(3) {
+	font-size: 18px;
+	color: #3db8a8;
+}
+
+.evaluate-content {
+	padding: 0 20px;
+}
+
+.evaluate-title {
+	font-size: 24px;
+	color: #000;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+

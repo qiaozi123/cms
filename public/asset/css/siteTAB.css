@@ -1,0 +1,66 @@
+
+.site-div {
+	margin-bottom: 20px;
+	display: flex;
+}
+
+.site-div-img {
+	width: 392px;
+	height: 264px;
+}
+
+.site-date {
+	width: 428px;
+	border: 1px solid #ccc;
+	height: 264px;
+	border-left: none;
+}
+
+.site-role-date {
+	display: flex;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 12px;
+	padding-top: 12px;
+}
+
+.site-role-date div {
+	width: 33.3333%;
+}
+
+.site-role-date div img {
+	width: 72px;
+	height: 72px;
+	border-radius: 72px;
+}
+
+.site-role-name {
+	font-size: 20px;
+	color: #000;
+	line-height: 24px;
+}
+
+.site-role-identity {
+	font-size: 18px;
+	color: #989898;
+	line-height: 24px;
+}
+
+.site-infor {
+	padding: 12px;
+}
+
+.site-infor div {
+	display: flex;
+	font-size: 16px;
+	color: #000;
+	margin-top: 12px;
+}
+
+.site-infor div:nth-child(1) {
+	margin-top: 0px;
+}
+
+.site-infor div p {
+	margin-right: 24px;
+}

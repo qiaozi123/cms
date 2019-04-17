@@ -13,8 +13,12 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('anli', 'AnliController@index');
+Route::get('anli/type/{id}', 'AnliController@type');
+Route::get('case/{id}', 'AnliController@show');
 Route::get('gonglue', 'GonglueController@index');
+Route::get('guide/{id}', 'GonglueController@show');
 Route::get('gongzhang', 'GongzhangController@index');
+Route::get('pm/{id}', 'GongzhangController@show');
 
 Route::post('userpost', 'UserController@post');
 

@@ -13,6 +13,12 @@ use App\Http\Controllers\Controller;
 class CaseController extends Controller
 {
 
+    public function list()
+    {
+        $data = Cases::all();
+        return view('admin.case.list',compact('data'));
+    }
+
     public function create()
     {
         return view('admin.case.create');
@@ -21,22 +27,28 @@ class CaseController extends Controller
     public function docreate(Request $request)
     {
         $name =  $request->input('name');
-        $en_name =  $request->input('en_name');
-        $articleteam = new Articlele_team();
+        $loupan =  $request->input('loupan');
+        $mianji =  $request->input('mianji');
+        $style =  $request->input('style');
+        $finish_at =  $request->input('finish_at');
+        $address =  $request->input('address');
+        $jigou =  $request->input('jigou');
+        $designer_id =  $request->input('designer_id');
+        $articleteam = new Cases();
+        $articleteam->loupan = $loupan;
         $articleteam->name = $name;
-        $articleteam->en_name = $en_name;
+        $articleteam->mianji = $mianji;
+        $articleteam->style = $style;
+        $articleteam->finish_at = $finish_at;
+        $articleteam->address = $address;
+        $articleteam->jigou = $jigou;
+        $articleteam->designer_id = $designer_id;
         $bool = $articleteam->save();
         if ($bool){
-            return response()->json(['status'=>200,'msg'=>'添加权限成功']);
+            return response()->json(['status'=>200,'msg'=>'添加案例成功']);
         }else{
-            return response()->json(['status'=>500,'msg'=>'添加权限失败']);
+            return response()->json(['status'=>500,'msg'=>'添加案例失败']);
         }
-    }
-
-    public function list()
-    {
-        $data = Cases::all();
-        return view('admin.case.list',compact('data'));
     }
 
     public function createlist()
@@ -113,6 +125,17 @@ class CaseController extends Controller
         }else{
             return response()->json(['status'=>500,'msg'=>'分类细分数据删除失败']);
         }
+    }
+
+    public function lunbolist($id)
+    {
+        return view('admin.case.lunbo.create',compact('id'));
+    }
+
+    public function lunbolistcreate(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
     }
 
 

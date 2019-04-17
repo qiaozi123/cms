@@ -1,0 +1,136 @@
+	@media screen and (max-width:321px) {
+				html {
+					font-size: 8px
+				}
+			}
+			
+			@media screen and (min-width:321px) and (max-width:375px) {
+				html {
+					font-size: 11px
+				}
+			}
+			
+			@media screen and (min-width:376px) and (max-width:414px) {
+				html {
+					font-size: 11px
+				}
+			}
+			
+			@media screen and (min-width:415px) and (max-width:500px) {
+				html {
+					font-size: 12px
+				}
+			}
+			
+			@media screen and (min-width:500px) {
+				html {
+					font-size: 12px
+				}
+			}
+			
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+			}
+			
+			img {
+				vertical-align: top;
+			}
+			
+			p {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.designStory_title {
+				height: 4rem;
+				line-height: 4rem;
+				text-align: center;
+				color: #545454;
+				font-size: 1.8rem;
+				background-color: #FFFFFF;
+			}
+			
+			.designStory_div {
+				padding: 1rem;
+				/* margin-top: 10px; */
+				background-color: #FFFFFF;
+			}
+			
+			.designStory_TA {
+				height: 3rem;
+				line-height: 3rem;
+				border-bottom: 1px solid #F1F1F1;
+				color: #545454;
+				font-size: 1.5rem;
+			}
+			
+			.designStory_infor {
+				margin-top: 10px;
+				position: relative;
+			}
+			
+			.designStory_avatar {
+				width: 9rem;
+				height: 9rem;
+				border-radius: 9rem;
+				position: absolute;
+			}
+			
+			.designStory_greet {
+				font-size: 1.8rem;
+				color: #545454;
+			}
+			
+			.designStory_infor_div {
+				line-height: 2rem;
+			}
+			 
+			.designStory_infor_div img {
+				width: 1rem;
+				vertical-align: middle;
+			}
+			
+			.designStory_infor_div span {
+				font-size: 1.2rem;
+				color: #989898;
+			}
+			
+			.designStory_style {
+				line-height: 2rem;
+				font-size: 1.2rem;
+				color: #989898;
+			}
+			
+			.designStory_idea {
+				margin-top: 20px;
+				font-size: 1.2rem;
+				color: #989898;
+				padding-bottom: 13px;
+				border-bottom: 1px solid #f1f1f1;
+				padding-left: 10px;
+				position: relative;
+				line-height: 1.8rem;
+			}
+			
+			.designStory_idea_border {
+				position: absolute;
+				height: 1.2rem;
+				width: 3px;
+				background-color: #3db8a8;
+				top: 3px;
+				left: 0px;
+			}
+			.designStory_content{
+				margin-top: 25px;
+			}
+			.designStory_content p{
+				font-size: 1.2rem;
+				color: #989898;
+			}
+			.designStory_content img{
+				margin-top: 13px;
+				max-width: 100% !important;
+				height: auto !important;
+			}

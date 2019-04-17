@@ -1,37 +1,8 @@
 @extends('web.layouts.app')
 
 @section('content')
-    <div class="menu-position-div" style="margin-top: 130px;">
-    </div>
-    <!-- 右边菜单栏 -->
-    <div class="menu-right-div">
-        <a class="menu-right-option" target="_blank" href="http://www.huihome.cn/about" title="了解绘装" style="line-height: 18px; padding-top: 7px;"> 一分钟 <br>
-            了解绘装
-        </a>
-        <div class="menu-right-option menu-right-option-erweima">
-            <img style="height: 34px; width: 34px; vertical-align: middle;" src="/asset/images/erweima.png" alt="扫描二维码"> <img class="menu-right-div-erweima-img" src="/asset/images/land_code.png" alt="绘装APP下载、绘装公众号">
-        </div>
-        <div class="menu-right-option menu-right-option-kefu">
-            <img style="height: 36px; width: 32px; vertical-align: middle;" src="/asset/images/kefu.png" alt="在线客服">
-        </div>
-        <div class="menu-right-option menu-right-option-toTop">
-            <img style="height: 16px; width: 30px; vertical-align: middle;" src="/asset/images/zhidong.png" alt="回到顶部">
-        </div>
-    </div>
 
-    <script src="{{url('asset/js/jquery-3.2.1.js')}}" type="text/javascript" charset="utf-8"></script>
-    <script src="{{url('asset/js/config.js')}}"></script>
-    <script src="{{url('asset/js/js.cookie.js')}}"></script>
-    <script src="{{url('asset/js/utils.js')}}"></script>
-    <script src="{{url('asset/js/components.js')}}"></script>
-    <script src="{{url('asset/js/menu_top.js')}}" type="text/javascript" charset="utf-8"></script>
-
-    <script type="text/javascript" src="{{url('asset/js/vue.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('asset/js/iview.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('asset/js/vue-resource@1.3.4.js')}}"></script>
-    <link rel="stylesheet" href="{{url('asset/css/login.css')}}">
-    <section id="VueLogin" class="layer-login-signin" style="display: none;"><div class="container"><div class="close">+</div> <div class="ivu-tabs"><div class="ivu-tabs-bar"><div class="ivu-tabs-nav-container"><div class="ivu-tabs-nav-wrap"><div class="ivu-tabs-nav-scroll"><div class="ivu-tabs-nav"><div class="ivu-tabs-ink-bar ivu-tabs-ink-bar-animated" style="display: block; width: 0px; transform: translate3d(0px, 0px, 0px);"></div> <div class="ivu-tabs-tab ivu-tabs-tab-active"><!----> 会员登录 <!----></div><div class="ivu-tabs-tab"><!----> 会员注册 <!----></div></div> <!----></div></div></div></div> <div class="ivu-tabs-content ivu-tabs-content-animated" style="transform: translateX(0%) translateZ(0px);"><div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="/asset/images/vCode" alt="登录图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 下次自动登录</label> <div class="login-btn-submit">登录</div> <p class="line"></p> <p class="tip">第三方登录</p> <div class="thirdPart"><a href="javascript:void(0);" class="qq"></a> <a href="javascript:void(0);" class="weChat"></a></div></div> <div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="/asset/images/vCode" alt="注册图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 我已看过并同意<a href="http://www.huihome.cn/" class="protocol">绘装用户协议条款</a></label> <div class="signin-btn-submit">注册</div></div></div></div> <!----></div></section>
-    <script src="{{url('asset/js/login.js')}}"></script><div class="v-transfer-dom"><div class="ivu-modal-mask" style="display: none;"></div> <div class="ivu-modal-wrap ivu-modal-hidden"><div class="ivu-modal" style="width: 520px; display: none;"><div class="ivu-modal-content"><a class="ivu-modal-close"><i class="ivu-icon ivu-icon-ios-close-empty"></i></a> <div class="ivu-modal-header"><div class="ivu-modal-header-inner">注册成功</div></div> <div class="ivu-modal-body"><p>是否前往修改个人资料？</p></div> <div class="ivu-modal-footer"><button type="button" class="ivu-btn ivu-btn-text ivu-btn-large"><!----> <!----> <span>取消</span></button> <button type="button" class="ivu-btn ivu-btn-primary ivu-btn-large"><!----> <!----> <span>确定</span></button></div></div></div></div></div><div class="content">
+    <div class="content">
         <!--
              作者：403571264@qq.com
              时间：2017-07-07
@@ -94,7 +65,7 @@
                     <div class="guide-list-div">
                         <div class="guide-list">
                             @foreach(\App\Model\Article::Pic_Article('anli',3) as $item)
-                            <a href="{{url('article/'.$item->id)}}" title="{{$item->title}}">
+                            <a href="{{url('guide/'.$item->id)}}" title="{{$item->title}}">
                                 <div class="guide-div">
                                     <img src="{{$item->avatar}}" alt="{{$item->title}}">
                                     <p>{{$item->title}}</p>
@@ -106,7 +77,7 @@
                         </div>
                         <div class="more-guide-div">
                             @foreach(\App\Model\Article::Article('anli',12) as $item)
-                            <a href="{{url('article/'.$item->id)}}" title="{{$item->title}}">
+                            <a href="{{url('guide/'.$item->id)}}" title="{{$item->title}}">
                                 <p>{{$item->title}}</p>
                             </a>
                             @endforeach
@@ -169,68 +140,40 @@
         <div class="index-case">
             <div class="case-div-title">
                 <h1>装修案例</h1>
-                <a href="http://www.huihome.cn/case/c_o_p.html" title="查看更多案例">
+                <a href="{{url('anli')}}" title="查看更多案例">
                     <p class="case-more">查看更多&gt;&gt;</p>
                 </a>
             </div>
             <div class="index-case-list">
-                <a href="http://www.huihome.cn/case/2403.html" title="长空"> <div class="case-left">
-                        <img class="case-left-img" src="/asset/images/1616_029411fb-18d1-4115-8664-d41e0a5bcb69.jpg" alt="长空">
+
+
+                <a href="{{url('case/'.$head->id)}}" title="{{$head->name}}"> <div class="case-left">
+                        <img class="case-left-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$head->id])->first()->img_url)}}" alt="{{$head->name}}">
                         <div class="case-left-infor">
-                            <img class="case-left-avatar" src="/asset/images/1616_c623d714-1347-4b6a-a77f-91fababc9c97.png" alt="郑雄">
+                            <img class="case-left-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$head->id])->first()->img_url)}}" alt="{{$head->designer_name}}">
                             <div class="case-left-role-infor">
-                                <p class="case-left-username">郑雄</p>
-                                <p class="case-left-style">四室及以上·美式</p>
+                                <p class="case-left-username">{{$head->designer_name}}</p>
+                                <p class="case-left-style">{{$head->house_type}}</p>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="http://www.huihome.cn/case/1737.html" title="陌上花开"> </a><div class="case-right-list"><a href="http://www.huihome.cn/case/1737.html" title="陌上花开">
-                        <div class="case-right">
-                            <img class="case-right-img" src="/asset/images/PIC_078227ff-8cfe-4010-806b-bd0a81b9c50d.jpg" alt="陌上花开">
-                            <div class="case-right-infor">
-                                <img class="case-right-avatar" src="/asset/images/1465_CYVDYPFSRMZLEIQFNRFOCLJKAUZXBAJU.png" alt="娜语拾光 周娜">
-                                <div class="case-right-role-infor">
-                                    <p class="case-right-usernmae">娜语拾光 周娜</p>
-                                    <p class="case-right-style">三室·田园</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/case/1695.html" title="木光醇色"> <div class="case-right">
-                            <img class="case-right-img" src="/asset/images/PIC_1d5413cc-6275-4d96-9adf-cab587613a40.jpg" alt="木光醇色">
-                            <div class="case-right-infor">
-                                <img class="case-right-avatar" src="/asset/images/1769_98cd4913-8459-49ab-a191-d637631d582a.jpg" alt="朱  佳">
-                                <div class="case-right-role-infor">
-                                    <p class="case-right-usernmae">朱  佳</p>
-                                    <p class="case-right-style">三室·北欧</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/case/1874.html" title="清风徐来"> <div class="case-right">
-                            <img class="case-right-img" src="/asset/images/PIC_b410ccc1-13a4-493b-a817-53ee3bcefad2.jpg" alt="清风徐来">
-                            <div class="case-right-infor">
-                                <img class="case-right-avatar" src="/asset/images/10772_e9b39897-a1cd-4311-ae8f-29a5a640c2c5.png" alt="王志平">
-                                <div class="case-right-role-infor">
-                                    <p class="case-right-usernmae">王志平</p>
-                                    <p class="case-right-style">三室·混搭</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="http://www.huihome.cn/case/1837.html" title="温馨雅居"> <div class="case-right">
-                            <img class="case-right-img" src="/asset/images/1471_EKKEIMLPSJOROMENLEREHLBXXOCGQKAG.png" alt="温馨雅居">
-                            <div class="case-right-infor">
-                                <img class="case-right-avatar" src="/asset/images/1471_78b2214c-ff2d-4f8a-8d0f-f1cc3e7f4c76.png" alt="熊杰">
-                                <div class="case-right-role-infor">
-                                    <p class="case-right-usernmae">熊杰</p>
-                                    <p class="case-right-style">四室及以上·中式</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a></div><a href="http://www.huihome.cn/case/1837.html" title="温馨雅居">
-                </a>
+
+                {{--@foreach($more as $item)--}}
+                {{--<a href="{{url('case/'.$item->id)}}" title="{{$item->name}}"> </a><div class="case-right-list"><a href="http://www.huihome.cn/case/1737.html" title="{{$item->name}}">--}}
+                        {{--<div class="case-right">--}}
+                            {{--<img class="case-right-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->name}}">--}}
+                            {{--<div class="case-right-infor">--}}
+                                {{--<img class="case-right-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->designer_name}}">--}}
+                                {{--<div class="case-right-role-infor">--}}
+                                    {{--<p class="case-right-usernmae">{{$item->designer_name}}</p>--}}
+                                    {{--<p class="case-right-style">三室·田园</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</a>--}}
+                {{--@endforeach--}}
+
             </div>
             <!--
                    作者：403571264@qq.com
@@ -239,9 +182,9 @@
             -->
             <div>
                 <div class="role-menu">
-                    <div class="design-menu role-select">请设计</div>
-                    <div style="font-size: 20px; color: #ccc;">|</div>
-                    <div class="pm-menu">请工长</div>
+                    {{--<div class="design-menu role-select">请设计</div>--}}
+                    {{--<div style="font-size: 20px; color: #ccc;">|</div>--}}
+                    <div class="pm-menu role-select">请工长</div>
                 </div>
                 <div class="role-list">
                     @foreach(\App\Model\Designer::HeaderDesinger() as $item)
@@ -259,14 +202,12 @@
                         <p class="designer-expert" title="{{$item->style}}">
                             {{$item->style}}</p>
                         <p class="designer-txt" title="{{$item->dream}}">{{$item->dream}}</p>
-                        <a href="{{url('/designer'.$item->id)}}.html" title="{{$item->name}}个人主页">
+                        <a href="{{url('/designer/'.$item->id)}}" title="{{$item->name}}个人主页">
                             <div class="role-go-detail">了解更多</div>
                         </a>
                     </div>
                     @endforeach
-                <div class="designer-other-div" data-cate="0" data-dindex="1" data-pindex="0">
-                    <img src="/asset/images/huanyihuan.png" alt="换一批"> <span>换一批</span>
-                </div>
+
             </div>
 
             <!--
@@ -299,11 +240,13 @@
                    描述：SEO优化
             -->
             <div class="index-SEO">
+
                 @foreach(\App\Model\Article::Article('shouye',15) as $item)
-                <a title="{{$item->name}}" href="{{url('page/'.$item->id)}}.html"><span>{{$item->name}}</span></a>
+                <a title="{{$item->title}}" href="{{url('guide/'.$item->id)}}"><span>{{$item->title}}</span></a>
                 @endforeach
             </div>
         </div>
+    </div>
     </div>
     <link rel="stylesheet" href="{{url('/asset/css/live.css')}}">
     <!---->
@@ -330,4 +273,5 @@
             margin-top: 14px;
         }
     </style>
-    @endsection
+
+@endsection

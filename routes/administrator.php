@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::post('/upload/avatar/', 'LunboController@createavatar');//文章图片上传路由
     Route::post('/upload/designer/', 'LunboController@createdesigner');//设计师图片上传路由
     Route::post('/upload/merchant/', 'LunboController@createmerchant');//设计师图片上传路由
+    Route::post('/upload/case/lunbo', 'LunboController@createcase');//设计师图片上传路由
 
     #后台文章路由
     Route::get('article/team','ArticleController@team');
@@ -84,6 +85,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
 
     Route::get('case/list/create','CaseController@create');
     Route::post('case/list/create','CaseController@docreate');
+
+    Route::get('case/list/lunbo/{id}','CaseController@lunbolist');//案例轮播
+    Route::post('case/list/lunbo/creat','CaseController@lunbolistcreate');//案例轮播post
 
 
 

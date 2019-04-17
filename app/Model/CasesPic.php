@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CasesPic extends Model
 {
-    protected $table = 'case_pics';
+    protected $table = 'cases_pics';
 }

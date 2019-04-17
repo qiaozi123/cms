@@ -36,7 +36,6 @@
             <th>案例名</th>
             <th>封面图</th>
             <th>设计师</th>
-            <th>组别</th>
             <th>创建时间</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -49,10 +48,9 @@
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{$item->id}}'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{{$item->id}}</td>
-                <td><a title="当前文章:{{$item->title}}"  onclick="x_admin_show('当前文章:{{$item->title}}','/admin/article/list/{{$item->id}}')" href="javascript:;">{{$item->title}}</a></td>
-                <td><img src="{{$item->avatar}}" style="width: 200px;"></td>
-                <td>{{$item->author}}</td>
-                <td>{{$item->belongto}}</td>
+                <td>{{$item->name}} </td>
+                <td> @if(empty($img_url = \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url))<a style="color: red" title="当前案例:{{$item->name}}"  onclick="x_admin_show('案例id:{{$item->id}}','/admin/case/list/lunbo/{{$item->id}}')" href="javascript:;">点击创建案例轮播</a>@else <img src="{{$img_url}}" style="width: 200px;">@endif</td>
+                <td>{{\App\Model\Designer::find($item->id)->name}}</td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Model\Article;
+use App\Model\Article_team;
 use App\Model\Articlele_team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +12,7 @@ class ArticleController extends Controller
 {
     public function team()
     {
-        $data = Articlele_team::all();
+        $data = Article_team::all();
         return view('admin.article.team.list',compact('data'));
     }
 
@@ -24,7 +25,7 @@ class ArticleController extends Controller
     {
         $name =  $request->input('name');
         $en_name =  $request->input('en_name');
-        $articleteam = new Articlele_team();
+        $articleteam = new Article_team();
         $articleteam->name = $name;
         $articleteam->en_name = $en_name;
         $bool = $articleteam->save();
@@ -43,7 +44,7 @@ class ArticleController extends Controller
 
     public function creteartcle()
     {
-        $team = Articlele_team::all();
+        $team = Article_team::all();
         return view('admin.article.create',compact('team'));
     }
 
