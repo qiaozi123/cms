@@ -74,7 +74,7 @@
                 预览图：
                 <div class="layui-upload-list" id="demo2"></div>
             </blockquote>
-            
+
         </div>
 
         <script>
@@ -108,9 +108,7 @@
 
 
         @include('UEditor::head')
-        <script id="container" name="content" type="text/plain">
-
-</script>
+        <script id="container" name="content" type="text/plain"></script>
 
         <!-- 实例化编辑器 -->
         <script type="text/javascript">

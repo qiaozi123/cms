@@ -6,6 +6,7 @@ use App\Model\Article;
 use App\Model\Articlele_team;
 use App\Model\Brands;
 use App\Model\Cases;
+use App\Model\Studio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -21,15 +22,11 @@ class MerchantController extends Controller
     {
         $name =  $request->input('name');
         $en_name =  $request->input('img_url');
-        $address =  $request->input('address');
-        $do =  $request->input('do');
-        $zhuying =  $request->input('zhuying');
-        $articleteam = new Brands();
+        $body =  $request->input('body');
+        $articleteam = new Studio();
         $articleteam->name = $name;
         $articleteam->img_url = $en_name;
-        $articleteam->address = $address;
-        $articleteam->do = $do;
-        $articleteam->zhuying = $zhuying;
+        $articleteam->body = $body;
         $bool = $articleteam->save();
         if ($bool){
             return response()->json(['status'=>200,'msg'=>'添加商户成功']);
@@ -40,7 +37,7 @@ class MerchantController extends Controller
 
     public function list()
     {
-        $data = Brands::all();
+        $data = Studio::all();
         return view('admin.merchant.list',compact('data'));
     }
 
@@ -48,7 +45,7 @@ class MerchantController extends Controller
     {
         $id =$request->input('id');
 
-        $post = Brands::find($id);
+        $post = Studio::find($id);
         $bool = $post->delete();
         if ($bool){
             return response()->json(['status'=>200,'msg'=>'删除成功']);

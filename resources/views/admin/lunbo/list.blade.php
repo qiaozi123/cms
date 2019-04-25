@@ -45,7 +45,7 @@
                 <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{$item->id}}'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td>{{$item->id}}</td>
-            <td><a title="当前轮播:{{$item->name}}"  onclick="x_admin_show('当前轮播:{{$item->name}}','/admin/lunbo/list/{{$item->id}}')" href="javascript:;">{{$item->name}}</a></td>
+            <td><a style="color: red" title="当前轮播:{{$item->name}}"  onclick="x_admin_show('当前轮播:{{$item->name}}','/admin/lunbo/list/{{$item->id}}')" href="javascript:;">{{$item->name}}</a></td>
             <td>{{$item->created_at}}</td>
             <td>{{$item->updated_at}}</td>
             <td class="td-manage">

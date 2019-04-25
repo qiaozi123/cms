@@ -162,4 +162,36 @@ class LunboController extends Controller
             }
         }
     }
+
+    public function delete(Request $request)
+    {
+        $id= $request->input('id');
+        $data =  Lunbo::find($id);
+        $bool =  $data->delete();
+        if ($bool){
+            return response()->json(['status'=>200,'msg'=>'轮播图片删除成功']);
+        }else{
+            return response()->json(['status'=>500,'msg'=>'轮播图片删除失败']);
+        }
+    }
+
+    public function updatearticle(Request $request)
+    {
+        $id = $request->input('id');
+        return view('admin.lunbo.article.show',compact('id'));
+    }
+
+    public function doupdatearticle(Request $request)
+    {
+        $id = $request->input('id');
+        $articleid = $request->input('article_id');
+        $lunbo = Lunbo::find($id);
+        $lunbo->article_id = $articleid;
+        $bool =  $lunbo->save();
+        if ($bool){
+            return response()->json(['status'=>200,'msg'=>'轮播文章绑定成功']);
+        }else{
+            return response()->json(['status'=>500,'msg'=>'轮播文章绑定失败']);
+        }
+    }
 }

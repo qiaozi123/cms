@@ -28,8 +28,9 @@ class CaseController extends Controller
     {
         $name =  $request->input('name');
         $loupan =  $request->input('loupan');
-        $mianji =  $request->input('mianji');
-        $style =  $request->input('style');
+        $area_id =  $request->input('area_id');
+        $housetype_id =  $request->input('housetype_id');
+        $style =  $request->input('style_id');
         $finish_at =  $request->input('finish_at');
         $address =  $request->input('address');
         $jigou =  $request->input('jigou');
@@ -37,8 +38,9 @@ class CaseController extends Controller
         $articleteam = new Cases();
         $articleteam->loupan = $loupan;
         $articleteam->name = $name;
-        $articleteam->mianji = $mianji;
-        $articleteam->style = $style;
+        $articleteam->housetype_id = $housetype_id;
+        $articleteam->area_id = $area_id;
+        $articleteam->style_id = $style;
         $articleteam->finish_at = $finish_at;
         $articleteam->address = $address;
         $articleteam->jigou = $jigou;
@@ -53,7 +55,7 @@ class CaseController extends Controller
 
     public function createlist()
     {
-        $data = CaseType::all();
+        $area = CaseType::all();
         return view('admin.case.type.list',compact('data'));
     }
 
@@ -136,6 +138,18 @@ class CaseController extends Controller
     {
         $data = $request->all();
         dd($data);
+    }
+
+    public function delete(Request $request)
+    {
+        $id = $request->input('id');
+        $data =  Cases::find($id);
+        $bool = $data->delete();
+        if ($bool){
+            return response()->json(['status'=>200,'msg'=>'案例据删除成功']);
+        }else{
+            return response()->json(['status'=>500,'msg'=>'案例数据删除失败']);
+        }
     }
 
 

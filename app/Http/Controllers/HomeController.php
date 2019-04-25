@@ -13,16 +13,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $head = Cases::where(['cases.id'=>1])
+        $head = Cases::where([])
             ->join('designers','cases.designer_id','=','designers.id')
-            ->select('cases.id','cases.name','cases.mianji','cases.style','designers.name as designer_name','designers.studio','designers.avatar','cases.see','cases.house_type')
+            ->join('studios','designers.studio_id','=','studios.id')
+            ->select('cases.id','cases.name','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
             ->first();
-
         $more =  Cases::where('cases.id','>',1)
             ->join('designers','cases.designer_id','=','designers.id')
+            ->join('studios','designers.studio_id','=','studios.id')
             ->limit(4)
-            ->select('cases.id','cases.name','cases.mianji','cases.style','designers.name as designer_name','designers.studio','designers.avatar','cases.see')
-            ->first();
+            ->select('cases.id','cases.name','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
+            ->get();
         return view('web.index',compact('head','more'));
     }
 

@@ -65,36 +65,23 @@
 
             });
         </script>
-
+        公司故事
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>地址
+                <span class="x-red">*</span>公司故事
             </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="address" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
 
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>经营品类
-            </label>
-            <div class="layui-input-inline">
-                <input type="text" name="do" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
 
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>主营品类
-            </label>
-            <div class="layui-input-inline">
-                <input type="text" name="zhuying" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                @include('UEditor::head')
+                <script id="container" name="body" type="text/plain"></script>
+
+                <!-- 实例化编辑器 -->
+                <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+                </script>
+
             </div>
-        </div>
+
 
 </tbody>
 </table>

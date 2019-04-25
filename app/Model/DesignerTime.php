@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CaseType extends Model
+class DesignerTime extends Model
 {
-    protected $table = 'case_types';
+    protected $table = 'designer_times';
 }

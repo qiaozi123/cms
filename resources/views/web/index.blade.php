@@ -159,20 +159,21 @@
                     </div>
                 </a>
 
-                {{--@foreach($more as $item)--}}
-                {{--<a href="{{url('case/'.$item->id)}}" title="{{$item->name}}"> </a><div class="case-right-list"><a href="http://www.huihome.cn/case/1737.html" title="{{$item->name}}">--}}
-                        {{--<div class="case-right">--}}
-                            {{--<img class="case-right-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->name}}">--}}
-                            {{--<div class="case-right-infor">--}}
-                                {{--<img class="case-right-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->designer_name}}">--}}
-                                {{--<div class="case-right-role-infor">--}}
-                                    {{--<p class="case-right-usernmae">{{$item->designer_name}}</p>--}}
-                                    {{--<p class="case-right-style">三室·田园</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--@endforeach--}}
+                @foreach($more as $item)
+                <a href="{{url('case/'.$item->id)}}" title="{{$item->name}}"> </a><div class="case-right-list"><a href="{{url('case/'.$item->id)}}" title="{{$item->name}}">
+                        <div class="case-right">
+                            <img class="case-right-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->name}}">
+                            <div class="case-right-infor">
+                                <img class="case-right-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->designer_name}}">
+                                <div class="case-right-role-infor">
+                                    <p class="case-right-usernmae">{{$item->designer_name}}</p>
+                                    <p class="case-right-style">三室·田园</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                @endforeach
 
             </div>
             <!--
@@ -184,7 +185,7 @@
                 <div class="role-menu">
                     {{--<div class="design-menu role-select">请设计</div>--}}
                     {{--<div style="font-size: 20px; color: #ccc;">|</div>--}}
-                    <div class="pm-menu role-select">请工长</div>
+                    <div class="pm-menu role-select">请设计</div>
                 </div>
                 <div class="role-list">
                     @foreach(\App\Model\Designer::HeaderDesinger() as $item)
@@ -202,7 +203,7 @@
                         <p class="designer-expert" title="{{$item->style}}">
                             {{$item->style}}</p>
                         <p class="designer-txt" title="{{$item->dream}}">{{$item->dream}}</p>
-                        <a href="{{url('/designer/'.$item->id)}}" title="{{$item->name}}个人主页">
+                        <a href="{{url('/pm/'.$item->id)}}" title="{{$item->name}}个人主页">
                             <div class="role-go-detail">了解更多</div>
                         </a>
                     </div>
@@ -227,7 +228,7 @@
                 </div>
                 <div class="brand-list">
                  @foreach(\App\Model\Brands::all() as $item)
-                    <a href="{{url('/merchant/'.$item->id)}}" title="{{$item->name}}">
+                    <a href="{{url('/cell/'.$item->id)}}" title="{{$item->name}}">
                         <img src="{{url($item->img_url)}}" alt="{{$item->nae}}">
                     </a>
                      @endforeach

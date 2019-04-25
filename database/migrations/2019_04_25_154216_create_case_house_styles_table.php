@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDesignersTable extends Migration
+class CreateCaseHouseStylesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,10 @@ class CreateDesignersTable extends Migration
      */
     public function up()
     {
-        Schema::create('designers', function (Blueprint $table) {
+        Schema::create('case_house_styles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('job');
-            $table->string('avatar');
-            $table->string('time_id');
-            $table->string('style_id');
-            $table->string('studio_id');
-            $table->string('price_id');
-            $table->string('dream');
+
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ class CreateDesignersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('designers');
+        Schema::dropIfExists('case_house_styles');
     }
 }

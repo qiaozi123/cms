@@ -77,15 +77,15 @@
                 <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{$item->id}}'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td>{{$item->id}}</td>
-            <td><a title="当前轮播:{{$item->name}}"  onclick="x_admin_show('当前轮播:{{$item->name}}','/admin/lunbo/list/{{$item->id}}')" href="javascript:;">{{$item->name}}</a></td>
+            <td>{{$item->name}}</td>
             <td><img src="{{$item->img_url}}" style="width: 300px"></td>
             <td>{{$item->created_at}}</td>
             <td>{{$item->updated_at}}</td>
             <td class="td-manage">
-                <a title="用户积分充值"  onclick="x_admin_show('用户:{{$item->name}}  积分充值','/user/recharge?userid={{$item->id}}')" href="javascript:;">
+                <a onclick="x_admin_show('绑定轮播文章','/admin/lunbo/updatearticle?id={{$item->id}}')" href="javascript:;">
                     <i class="layui-icon">&#xe642;</i>
                 </a>
-                <a title="修改用户权限"  onclick="x_admin_show('修改用户:{{$item->name}}  权限','/role/user/update?userid={{$item->id}}')" href="javascript:;">
+                <a title="删除"  onclick="member_del(this,{{$item->id}})" href="javascript:;">
                     <i class="layui-icon">&#xe631;</i>
                 </a>
             </td>
@@ -138,7 +138,27 @@
     /*用户-删除*/
     function member_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
-            //发异步删除数据
+            $.ajax({
+                type:"post",//type可以为post也可以为get
+                url:"/admin/lunbo/delete",
+                data:{'_token':'{{csrf_token()}}','id':id},//这行不能省略，如果没有数据向后台提交也要写成data:{}的形式
+                dataType:"json",//这里要注意如果后台返回的数据不是json格式，那么就会进入到error:function(data){}中
+                async:false,
+                success:function(data){
+                    //发异步，把数据提交给php
+                    // if (data==200){
+                    layer.alert(data.msg, {icon: 6},function () {
+                        // 获得frame索引
+                        window.parent.location.reload();
+                        var index = parent.layer.getFrameIndex(window.name);
+                        //关闭当前frame
+                        parent.layer.close(index);
+                    });
+                },
+                error:function(data){
+
+                }
+            });
             $(obj).parents("tr").remove();
             layer.msg('已删除!',{icon:1,time:1000});
         });

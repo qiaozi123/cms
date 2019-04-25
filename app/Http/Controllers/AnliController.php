@@ -18,7 +18,8 @@ class AnliController extends Controller
     {
         $case = Cases::where([])
             ->join('designers','cases.designer_id','=','designers.id')
-            ->select('cases.id','cases.name','cases.mianji','cases.style','designers.name as designer_name','designers.studio','designers.avatar','cases.see')
+            ->join('studios','designers.studio_id','=','studios.id')
+            ->select('cases.id','cases.name','cases.area_id','cases.style_id','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
             ->paginate(15);
         return view('web.anli',compact('case'));
     }
@@ -35,9 +36,33 @@ class AnliController extends Controller
 
     public function type($id)
     {
-        $case = Cases::where(['cases.type_id'=>$id])
+        $case = Cases::where(['cases.housetype_id'=>$id])
             ->join('designers','cases.designer_id','=','designers.id')
-            ->select('cases.id','cases.name','cases.mianji','cases.style','designers.name as designer_name','designers.studio','designers.avatar','cases.see')
+            ->join('case_house_styles','cases.housetype_id','=','case_house_styles.id')
+            ->join('studios','designers.studio_id','=','studios.id')
+            ->select('cases.id','cases.name','cases.area_id','cases.style_id','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
+            ->paginate(15);
+        return view('web.anli',compact('case'));
+    }
+
+    public function style($id)
+    {
+        $case = Cases::where(['cases.style_id'=>$id])
+            ->join('designers','cases.designer_id','=','designers.id')
+            ->join('case_styles','cases.style_id','=','case_styles.id')
+            ->join('studios','designers.studio_id','=','studios.id')
+            ->select('cases.id','cases.name','cases.area_id','cases.style_id','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
+            ->paginate(15);
+        return view('web.anli',compact('case'));
+    }
+
+    public function area($id)
+    {
+        $case = Cases::where(['cases.area_id'=>$id])
+            ->join('designers','cases.designer_id','=','designers.id')
+            ->join('studios','designers.studio_id','=','studios.id')
+            ->join('case_areas','cases.area_id','=','case_areas.id')
+            ->select('cases.id','cases.name','cases.area_id','cases.style_id','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
             ->paginate(15);
         return view('web.anli',compact('case'));
     }

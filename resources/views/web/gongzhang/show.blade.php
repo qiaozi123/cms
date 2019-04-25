@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script charset="utf-8" type="text/javascript" src="{{url('asset/js')}}/pckit.js"></script>
-    <title>绘装网-吴志海</title>
+    <title></title>
     <link rel="icon" type="image/x-icon" href="http://www.huihome.cn/static/img/logo-ico.png">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/designerDetail.css">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/evaluateTAB.css">
@@ -63,9 +63,7 @@
     </div>
 </div>
 <div class="menu-position-div" style="margin-top: 130px;">
-    <a href="http://www.huihome.cn/index" title="首页">首页</a>
-    &gt;&gt;<a href="http://www.huihome.cn/pm/c.html" title="选工长">选工长</a>
-    &gt;&gt;<a href="http://www.huihome.cn/pm/5126.html" title="工长详情">工长详情</a>
+
 </div>
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/designerDetail.css">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/evaluateTAB.css">
@@ -139,16 +137,7 @@
                         </div>
                     </div>
                     <div class="design-follow-div">
-                        <div>
-                            <p class="design-follow-num">7</p>
-                            <p class="design-follow-name">关注</p>
-                        </div>
-                        <div class="design-follow-interval">
-                        </div>
-                        <div>
-                            <p class="design-follow-num">53</p>
-                            <p class="design-follow-name">被关注</p>
-                        </div>
+
                     </div>
                 </div>
                 <div class="line-div">
@@ -163,9 +152,9 @@
                     <p class="role-title">个人资料</p>
                     <div class="role-infor-div">
                         <p>职位名称：{{$data->job}}</p>
-                        <p>所属工作室：{{$data->studio}}</p>
-                        <p>施工经验：{{$data->jobtime}}年</p>
-                        <p>施工案例数：{{$data->case_count}}个</p>
+                        <p>所属工作室：{{\App\Model\Studio::find($data->studio_id)->name}}</p>
+                        <p>设计经验：{{\App\Model\DesignerTime::find($data->time_id)->times}}</p>
+                        <p>案例数：{{ \App\Model\Cases::where(['designer_id'=>$id])->get()->count()}}个</p>
                     </div>
                     <p class="role-txt">
                         工作理念：{{$data->dream}}</p>

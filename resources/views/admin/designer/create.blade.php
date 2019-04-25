@@ -45,8 +45,11 @@
                 <span class="x-red">*</span>工作时长
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="jobage" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="time_id" class="valid">
+                    @foreach(\App\Model\DesignerTime::all( ) as $item)
+                    <option value="{{$item->id}}">{{$item->times}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -55,8 +58,11 @@
                 <span class="x-red">*</span>作品风格
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="style" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="style_id" class="valid">
+                    @foreach(\App\Model\DesignerStyle::all( ) as $item)
+                        <option value="{{$item->id}}">{{$item->style}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -65,8 +71,11 @@
                 <span class="x-red">*</span>所属工作室
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="studio" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="studio_id" class="valid">
+                    @foreach(\App\Model\Studio::all( ) as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -75,8 +84,11 @@
                 <span class="x-red">*</span>设计费用
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="price" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="price_id" class="valid">
+                    @foreach(\App\Model\DesignerPrice::all( ) as $item)
+                        <option value="{{$item->id}}">{{$item->price}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 

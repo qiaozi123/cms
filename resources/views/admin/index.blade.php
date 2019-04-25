@@ -48,12 +48,14 @@
                     </a>
                     <ul class="sub-menu">
                         @foreach(\App\Model\Permission::nav($item->id) as $item1)
+                            @if($item1->show == 1)
                         <li>
                             <a _href="{{$item1->slug}}">
                                 <i class="iconfont">{!!$item1->icon!!}</i>
                                 <cite>{{$item1->name}}</cite>
                             </a>
                         </li >
+                            @endif
                         @endforeach
                     </ul>
                 </li>

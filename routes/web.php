@@ -14,11 +14,17 @@
 Route::get('/', 'HomeController@index');
 Route::get('anli', 'AnliController@index');
 Route::get('anli/type/{id}', 'AnliController@type');
+Route::get('anli/style/{id}', 'AnliController@style');
+Route::get('anli/area/{id}', 'AnliController@area');
 Route::get('case/{id}', 'AnliController@show');
 Route::get('gonglue', 'GonglueController@index');
 Route::get('guide/{id}', 'GonglueController@show');
-Route::get('gongzhang', 'GongzhangController@index');
+Route::get('designer', 'GongzhangController@index');
+Route::get('designer/price/{id}', 'GongzhangController@price');
+Route::get('designer/style/{id}', 'GongzhangController@style');
+Route::get('designer/time/{id}', 'GongzhangController@time');
 Route::get('pm/{id}', 'GongzhangController@show');
+Route::get('cell/{id}', 'StudioController@index');
 
 Route::post('userpost', 'UserController@post');
 

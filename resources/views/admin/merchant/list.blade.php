@@ -37,9 +37,7 @@
             <th>id</th>
             <th>商户名称</th>
             <th>商户图片</th>
-            <th>商户地址</th>
-            <th>商户经营</th>
-            <th>主营品类</th>
+            <th>团队故事</th>
             <th>创建时间</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -54,9 +52,7 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->name}}</td>
                 <td><img src="{{$item->img_url}}" ></td>
-                <td>{{$item->address}}</td>
-                <td>{{$item->do}}</td>
-                <td>{{$item->zhuying}}</td>
+                <td>{{str_limit($item->body,50,'...')}}</td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">

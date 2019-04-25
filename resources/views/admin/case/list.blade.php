@@ -20,7 +20,7 @@
 <div class="x-body">
     <xblock>
         <button class="layui-btn" onclick="x_admin_show('创建案例','{{url('admin/case/list/create')}}')"><i class="layui-icon"></i>创建案例</button>
-        <button class="layui-btn" onclick="x_admin_show('创建案例类型','{{url('admin/case/type/list')}}')"><i class="layui-icon"></i>创建案例类型</button>
+        {{--<button class="layui-btn" onclick="x_admin_show('创建案例类型','{{url('admin/case/type/list')}}')"><i class="layui-icon"></i>创建案例类型</button>--}}
         <a class="layui-btn layui-btn-small" style="line-height:1.6em;float:right" href="javascript:location.replace(location.href);" title="刷新">
             <i class="layui-icon" style="line-height:30px">ဂ</i>
         </a>
@@ -49,16 +49,13 @@
                 </td>
                 <td>{{$item->id}}</td>
                 <td>{{$item->name}} </td>
-                <td> @if(empty($img_url = \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url))<a style="color: red" title="当前案例:{{$item->name}}"  onclick="x_admin_show('案例id:{{$item->id}}','/admin/case/list/lunbo/{{$item->id}}')" href="javascript:;">点击创建案例轮播</a>@else <img src="{{$img_url}}" style="width: 200px;">@endif</td>
-                <td>{{\App\Model\Designer::find($item->id)->name}}</td>
+                <td> @if(empty($img_url = \App\Model\CasesPic::where(['case_id'=>$item->id])->first()))<a style="color: red" title="当前案例:{{$item->name}}"  onclick="x_admin_show('案例id:{{$item->id}}','/admin/case/list/lunbo/{{$item->id}}')" href="javascript:;">点击创建案例轮播</a>@else <img src="{{$img_url->img_url}}" style="width: 200px;">@endif</td>
+                <td>{{\App\Model\Designer::find($item->designer_id)->name}}</td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">
-                    <a title="用户积分充值"  onclick="x_admin_show('用户:{{$item->name}}  积分充值','/user/recharge?userid={{$item->id}}')" href="javascript:;">
-                        <i class="layui-icon">&#xe642;</i>
-                    </a>
-                    <a title="修改用户权限"  onclick="x_admin_show('修改用户:{{$item->name}}  权限','/role/user/update?userid={{$item->id}}')" href="javascript:;">
-                        <i class="layui-icon">&#xe631;</i>
+                    <a title="删除"  onclick="member_del(this,{{$item->id}})" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
             </tr>
@@ -123,9 +120,7 @@
                     layer.alert(data.msg, {icon: 6},function () {
                         // 获得frame索引
                         window.parent.location.reload();
-                        var index = parent.layer.getFrameIndex(window.name);
-                        //关闭当前frame
-                        parent.layer.close(index);
+
                     });
                 },
                 error:function(data){

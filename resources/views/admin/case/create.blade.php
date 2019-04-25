@@ -39,14 +39,29 @@
             </div>
         </div>
 
+        <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+                <span class="x-red">*</span>户型
+            </label>
+            <div class="layui-input-inline">
+                <select  name="housetype_id" class="valid">
+                    @foreach(\App\Model\CaseHouseStyle::all() as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
 
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
                 <span class="x-red">*</span>面积
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="mianji" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="area_id" class="valid">
+                    @foreach(\App\Model\CaseArea::all() as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -55,8 +70,11 @@
                 <span class="x-red">*</span>风格
             </label>
             <div class="layui-input-inline">
-                <input type="text"  name="style" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
+                <select  name="style_id" class="valid">
+                @foreach(\App\Model\CaseStyle::all() as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+                </select>
             </div>
         </div>
 
@@ -70,7 +88,6 @@
             </div>
         </div>
 
-
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
                 <span class="x-red">*</span>完成时间
@@ -81,15 +98,7 @@
             </div>
         </div>
 
-        <div class="layui-form-item">
-            <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>机构
-            </label>
-            <div class="layui-input-inline">
-                <input type="text"  name="jigou" required="" lay-verify="required"
-                       autocomplete="off" class="layui-input">
-            </div>
-        </div>
+
 
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">

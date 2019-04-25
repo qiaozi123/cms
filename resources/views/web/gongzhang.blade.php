@@ -1,73 +1,69 @@
 @extends('web.layouts.app')
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/designerList.css">
+    <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/prtar.css">
     <div class="v-transfer-dom"><div class="ivu-modal-mask" style="display: none;"></div> <div class="ivu-modal-wrap ivu-modal-hidden"><div class="ivu-modal" style="width: 520px; display: none;"><div class="ivu-modal-content"><a class="ivu-modal-close"><i class="ivu-icon ivu-icon-ios-close-empty"></i></a> <div class="ivu-modal-header"><div class="ivu-modal-header-inner">注册成功</div></div> <div class="ivu-modal-body"><p>是否前往修改个人资料？</p></div> <div class="ivu-modal-footer"><button type="button" class="ivu-btn ivu-btn-text ivu-btn-large"><!----> <!----> <span>取消</span></button> <button type="button" class="ivu-btn ivu-btn-primary ivu-btn-large"><!----> <!----> <span>确定</span></button></div></div></div></div></div><div class="content">
-        {{--<div class="filter">--}}
-            {{--<input type="hidden" name="pmCase" value="">--}}
-            {{--<input type="hidden" name="workYear" value="">--}}
-            {{--<div class="site-quantity">--}}
-                {{--<div class="filter-title">--}}
-                    {{--工地数量：--}}
-                {{--</div>--}}
-                {{--<div class="filter-div">--}}
-                    {{--<a href="http://www.huihome.cn/pm/c.html" id="caseAll">--}}
-                        {{--<div class="filter-select">--}}
-                            {{--不限--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cpmcase1.html" id="pmcase1">--}}
-                        {{--<div>≤5个</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cpmcase2.html" id="pmcase2">--}}
-                        {{--<div>6-10个</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cpmcase3.html" id="pmcase3">--}}
-                        {{--<div>11-20个</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cpmcase4.html" id="pmcase4">--}}
-                        {{--<div>&gt;20个</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="practitioners" style="margin-top: 10px;">--}}
-                {{--<div class="filter-title">--}}
-                    {{--从业年限：--}}
-                {{--</div>--}}
-                {{--<div class="filter-div">--}}
-                    {{--<a href="http://www.huihome.cn/pm/c.html" id="workAll">--}}
-                        {{--<div class="filter-select">--}}
-                            {{--不限--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cwork1.html" id="work1">--}}
-                        {{--<div>≤2年</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cwork2.html" id="work2">--}}
-                        {{--<div>3-5年</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cwork3.html" id="work3">--}}
-                        {{--<div>6-10年</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cwork4.html" id="work4">--}}
-                        {{--<div>11-15年</div>--}}
-                    {{--</a>--}}
-                    {{--<a href="http://www.huihome.cn/pm/cwork5.html" id="work5">--}}
-                        {{--<div>&gt;15年</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+        <div class="filter">
+            <input type="hidden" name="fee" value="">
+            <input type="hidden" name="workYear" value="">
+            <input type="hidden" name="decoStyle" value="">
+            <div class="measure">
+                <div class="measure-title">
+                    设计费：
+                </div>
+
+                <div class="filter-div">
+                    @foreach(\App\Model\DesignerPrice::all() as $item)
+                    <a href="{{url('designer/price/'.$item->id)}}" >
+                        <div >
+                           {{$item->price}}
+                        </div>
+                    </a>
+                    @endforeach
+                </div>
+            </div>
+            <div class="layout">
+                <div class="measure-title">
+                    经验值：
+                </div>
+                <div class="filter-div">
+                    @foreach(\App\Model\DesignerTime::all() as $item)
+                        <a href="{{url('designer/time/'.$item->id)}}" >
+                            <div >
+                                {{$item->times}}
+                            </div>
+                        </a>
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="manner">
+                <div class="measure-title">
+                    风&nbsp;&nbsp;&nbsp;&nbsp;格：
+                </div>
+                <div class="filter-div">
+                    @foreach(\App\Model\DesignerStyle::all() as $item)
+                        <a href="{{url('designer/style/'.$item->id)}}" >
+                            <div>
+                                {{$item->style}}
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
 
         <div class="pm-content">
             <div class="pm-list">
-                <h1>工长列表</h1>
+                <h1>设计师列表</h1>
                 <div class="pm-list-div">
                     @foreach($data as $item)
                     <div class="pm-div">
                         <div class="pm-content-div">
                             <div style="display: flex;">
                                 <a href="{{url('pm/'.$item->id)}}">
-                                    <img class="pm-avatar" alt="{{$item->name}}" src="{{url($item->avatar)}}">
+                                    <img class="pm-avatar" alt="{{$item->name}}" src="{{$item->avatar}}">
                                 </a>
                                 <div class="pm-infor">
                                     <div style="display: flex;">
@@ -76,11 +72,11 @@
                                         </a>
                                         <a href="{{url('pm/'.$item->id)}}">
                                             <div class="atelier-name">
-                                                {{$item->studio}}</div>
+                                                {{\App\Model\Studio::find($item->studio_id)->name}}</div>
                                         </a>
                                     </div>
                                     <p class="pm-style">&nbsp;&nbsp;</p>
-                                    <p class="pm-exp">施工经验：{{$item->jobtime}}年 施工案例数：{{$item->case_count}}个</p>
+                                    <p class="pm-exp">设计经验：{{\App\Model\DesignerTime::find($item->time_id)->times}} 设计案例数：{{\App\Model\Cases::where(['designer_id'=>$item->id])->get()->count()}}个</p>
                                 </div>
                             </div>
                             <div>
@@ -119,14 +115,13 @@
                 <div style="padding: 20px;background-color: #fff;box-shadow: 0 0 4px #646c7a;margin-top: 10px;">
                     @foreach(\App\Model\Studio::all() as  $item)
                         <div class="public-team-list-div">
-                            <a href="#">
+                            <a href="/cell/{{$item->id}}">
                                 <p style="height: 36px;line-height: 36px;font-size: 20px;color: #fff;">{{$item->name}}</p>
                             </a>
-                            {{--<div class="public-team-div">--}}
-                            {{--<p style="float: left;">共53位团队伙伴</p>--}}
-                            {{--<p style="float: right;">粉丝：4160</p>--}}
-                            {{--<div style="clear: both;"></div>--}}
-                            {{--</div>--}}
+                            <div class="public-team-div">
+                            <p style="float: left;">共{{\App\Model\Designer::where(['studio_id'=>$item->id])->get()->count()}}位团队伙伴</p>
+                            <div style="clear: both;"></div>
+                            </div>
                         </div>
                     @endforeach
 
@@ -166,11 +161,11 @@
                         border: 1px solid #fff;
                     }
                 </style>
-                <p style="line-height: 40px; font-size: 30px; color: #000; margin-top: 20px;">最近活跃的工长</p>
+                <p style="line-height: 40px; font-size: 30px; color: #000; margin-top: 20px;">最近活跃的设计</p>
                 <div class="activeList-list">
                     @foreach($data as $item)
-                    <a href="{{url('pm/'.$item->id)}}">
-                        <img src="{{url($item->avatar)}}" alt="{{$item->name}}">
+                    <a href="{{url('pm')}}/{{$item->id}}">
+                        <img src="{{$item->avatar}}" alt="{{$item->name}}">
                         <p style="line-height: 30px; height: 30px; font-size: 16px; color: #000;">{{$item->name}}</p>
                     </a>
                     @endforeach

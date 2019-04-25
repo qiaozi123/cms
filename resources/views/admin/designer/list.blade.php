@@ -56,10 +56,10 @@
                 <td><a title="当前设计师:{{$item->name}}"  onclick="x_admin_show('当前设计师:{{$item->name}}','/admin/designer/list/{{$item->id}}')" href="javascript:;">{{$item->name}}</a></td>
                 <td><img src="{{$item->avatar}}" style="width: 200px;"></td>
                 <td>{{$item->job}}</td>
-                <td>{{$item->job_age}}</td>
-                <td>{{$item->style}}</td>
-                <td>{{$item->studio}}</td>
-                <td>{{$item->price}}</td>
+                <td>{{\App\Model\DesignerTime::find($item->time_id)->times}}</td>
+                <td>{{\App\Model\DesignerStyle::find($item->style_id)->style}}</td>
+                <td>{{\App\Model\Studio::find($item->studio_id)->name}}</td>
+                <td>{{\App\Model\DesignerPrice::find($item->price_id)->price}}</td>
                 <td>{{$item->dream}}</td>
                 <td>@if($item->show)是 @else 否 @endif </td>
                 <td>{{$item->created_at}}</td>

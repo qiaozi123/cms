@@ -1,7 +1,6 @@
 @extends('web.layouts.app')
 
 @section('content')
-
     <link rel="stylesheet" type="text/css" href="{{url('asset/css/case.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css/pageCuter.css')}}">
     <script src=".{{url('asset/js/jquery-3.2.1.js')}}" type="text/javascript" charset="utf-8"></script>
@@ -29,7 +28,7 @@
             <div class="type">
                 <div class="summary">户型：</div>
                 <div class="container">
-                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>1])->get() as $item)
+                    @foreach(\App\Model\CaseHouseStyle::all() as $item)
                     <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
                     @endforeach
                 </div>
@@ -37,20 +36,19 @@
             <div class="style">
                 <div class="summary">风格：</div>
                 <div class="container">
-                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>2])->get() as $item)
-                        <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
+                    @foreach(\App\Model\CaseStyle::all() as $item)
+                        <a href="{{url('anli/style/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
                     @endforeach
                 </div>
             </div>
             <div class="area">
                 <div class="summary">面积：</div>
                 <div class="container">
-                    @foreach(\App\Model\CaseTypeData::where(['type_id'=>3])->get() as $item)
-                        <a href="{{url('anli/type/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
+                    @foreach(\App\Model\CaseArea::all() as $item)
+                        <a href="{{url('anli/area/'.$item->id)}}" class="unit" id="houseAll">{{$item->name}}</a>
                     @endforeach
                 </div>
             </div>
-
         </nav>
         <section class="cards">
             @foreach($case as $item)
@@ -59,7 +57,7 @@
 
                 <div class="view" style="background-image:url({{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}})">
                     <p class="summary"><span class="name" title="{{$item->designer_name}}">{{$item->designer_name}}</span>
-                        <span class="location" title="{{$item->mianji}}·{{$item->style}}">{{$item->mianji}}·{{$item->style}}</span></p>
+                        <span class="location" title="{{ $area = \App\Model\CaseArea::find($item->area_id)->name}}·{{$style = \App\Model\CaseStyle::find($item->style_id)->name}}">{{$area}}·{{$style}}</span></p>
                 </div>
                 <div class="rowAvatar">
                     <div class="avatar" style="background-image:url({{url($item->avatar)}})"></div>

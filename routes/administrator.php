@@ -58,6 +58,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::post('lunbo/create', 'LunboController@docreate');
     Route::get('lunbo/list/{id}', 'LunboController@show');
     Route::post('lunbo/list/{id}/create', 'LunboController@createpic');
+    Route::post('lunbo/delete', 'LunboController@delete');
+    Route::get('lunbo/updatearticle', 'LunboController@updatearticle');
+    Route::post('lunbo/updatearticle', 'LunboController@doupdatearticle');
+
+
     #后台图片上传路由
     Route::post('/upload/lunbo', 'LunboController@createpic');//轮播图片上传路由
     Route::post('/upload/avatar/', 'LunboController@createavatar');//文章图片上传路由
@@ -82,12 +87,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('case/list','CaseController@list');
     Route::get('case/create','CaseController@create');
     Route::post('case/create','CaseController@docreate');
+    Route::post('case/delete','CaseController@delete');
 
     Route::get('case/list/create','CaseController@create');
     Route::post('case/list/create','CaseController@docreate');
 
     Route::get('case/list/lunbo/{id}','CaseController@lunbolist');//案例轮播
-    Route::post('case/list/lunbo/creat','CaseController@lunbolistcreate');//案例轮播post
+    Route::post('case/list/lunbo/create','CaseController@lunbolistcreate');//案例轮播post
 
 
 

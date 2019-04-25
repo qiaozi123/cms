@@ -1,0 +1,159 @@
+.filter {
+	padding: 20px;
+	background-color: #fff;
+}
+
+.measure {
+	display: flex;
+}
+
+.measure-title {
+	font-size: 16px;
+	color: #000;
+}
+
+.layout {
+	display: flex;
+	margin-top: 10px;
+}
+
+.filter-div div {
+	color: #000;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 54px;
+	margin-bottom: 10px;
+}
+.filter-select{
+	color: #3db8a8 !important;
+}
+.filter-title {
+	width: 64px;
+}
+
+.filter-div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	flex: 1;
+}
+
+.manner {
+	display: flex;
+	margin-top: 10px;
+}
+
+.designer-content {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.designer-list {
+	width: 860px;
+}
+
+.designer-list-title {
+	line-height: 40px;
+	font-size: 30px;
+	color: #000;
+}
+
+.designer-list-div {
+	padding: 0 20px 20px 20px;
+	background-color: #fff;
+	box-shadow: 0 0 4px #a3a8b2;
+}
+
+.designer-content-div {
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #ccc;
+}
+
+.designer-avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+}
+.designer-avatar:hover{
+	border: 1px solid #fff;
+}
+.designer-infor {
+	margin-left: 20px;
+	padding: 20px 0;
+}
+
+.designer-name {
+	font-size: 20px;
+	color: #000;
+	line-height: 30px;
+}
+
+.atelier-name {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	color: #3db8a8;
+	border: 1px solid #3db8a8;
+	margin-left: 20px;
+	font-size: 16px;
+	border-radius: 2px;
+}
+
+.designer-style {
+	font-size: 16px;
+	color: #000;
+	margin-top: 20px;
+}
+
+.designer-exp {
+	font-size: 16px;
+	color: #000;
+	margin-top: 14px;
+}
+
+.jinpai {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+}
+
+.bao {
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.design-fee {
+	font-size: 16px;
+	color: #ff8d36;
+	margin-top: 30px;
+}
+
+.consulting {
+	width: 110px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 10px;
+	background-color: #3db8a8;
+	border-radius: 2px;
+	margin-left: 110px;
+	cursor: pointer;
+}
+
+.designer-more {
+	background-color: #b4b4b4;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	height: 32px;
+	line-height: 32px;
+}
