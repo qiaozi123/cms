@@ -72,11 +72,11 @@
                                         </a>
                                         <a href="{{url('pm/'.$item->id)}}">
                                             <div class="atelier-name">
-                                                {{\App\Model\Studio::find($item->studio_id)->name}}</div>
+                                                {{$item->studio}}</div>
                                         </a>
                                     </div>
                                     <p class="pm-style">&nbsp;&nbsp;</p>
-                                    <p class="pm-exp">设计经验：{{\App\Model\DesignerTime::find($item->time_id)->times}} 设计案例数：{{\App\Model\Cases::where(['designer_id'=>$item->id])->get()->count()}}个</p>
+                                    <p class="pm-exp">设计经验：{{$item->times}} 设计案例数：{{\App\Model\Cases::where(['designer_id'=>$item->id])->get()->count()}}个</p>
                                 </div>
                             </div>
                             <div>

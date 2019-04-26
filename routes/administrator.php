@@ -82,6 +82,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('designer/list','DesignerController@list');
     Route::get('designer/create','DesignerController@create');
     Route::post('designer/create','DesignerController@docreate');
+    Route::post('designer/delete','DesignerController@delete');
 
     #案例路由
     Route::get('case/list','CaseController@list');

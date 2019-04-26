@@ -76,6 +76,17 @@ class DesignerController extends Controller
           }else{
               return response()->json(['status'=>500,'msg'=>'添加失败']);
           }
+    }
 
+    public function delete(Request $request)
+    {
+        $id = $request->input('id');
+        $data = Designer::find($id);
+        $bool = $data->delete();
+        if ($bool){
+            return response()->json(['status'=>200,'msg'=>'删除成功']);
+        }else{
+            return response()->json(['status'=>500,'msg'=>'删除失败']);
+        }
     }
 }
