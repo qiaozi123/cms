@@ -146,7 +146,7 @@
             </div>
             <div class="index-case-list">
 
-
+                @if(!empty($head))
                 <a href="{{url('case/'.$head->id)}}" title="{{$head->name}}"> <div class="case-left">
                         <img class="case-left-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$head->id])->first()->img_url)}}" alt="{{$head->name}}">
                         <div class="case-left-infor">
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                 </a>
-
+                @endif
                 @foreach($more as $item)
                 <a href="{{url('case/'.$item->id)}}" title="{{$item->name}}"> </a><div class="case-right-list"><a href="{{url('case/'.$item->id)}}" title="{{$item->name}}">
                         <div class="case-right">

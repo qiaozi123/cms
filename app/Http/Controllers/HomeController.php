@@ -18,6 +18,7 @@ class HomeController extends Controller
             ->join('studios','designers.studio_id','=','studios.id')
             ->select('cases.id','cases.name','designers.name as designer_name','studios.name as studio','designers.avatar','cases.see')
             ->first();
+       
         $more =  Cases::where('cases.id','>',1)
             ->join('designers','cases.designer_id','=','designers.id')
             ->join('studios','designers.studio_id','=','studios.id')
