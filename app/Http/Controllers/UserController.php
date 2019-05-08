@@ -13,11 +13,6 @@ class UserController extends Controller
 {
     public function login()
     {
-//        $user = new User();
-//        $user->name = 'admin';
-//        $user->email = 'admin@qq.com';
-//        $user->password = Hash::make('admin');
-//        $user->save();
         return view('admin.login');
     }
 
@@ -67,4 +62,6 @@ class UserController extends Controller
             return response()->json(['msg'=>'提交失败','status'=>500]);
         }
     }
+
+
 }

@@ -27,6 +27,11 @@ Route::get('pm/{id}', 'GongzhangController@show');
 Route::get('cell/{id}', 'StudioController@index');
 
 Route::post('userpost', 'UserController@post');
+//用户登录
+Route::post('user/login', 'AuthController@login');
+//用户注册
+Route::post('user/regist', 'AuthController@regist');
+Route::post('user/logout', 'AuthController@logout');
 
 
 
