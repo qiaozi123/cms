@@ -34,11 +34,25 @@
                 <textarea class="top-textarea" placeholder="请简单描述你想问的装修问题" id="content" name="content" maxlength="500"></textarea>
                 <input class="top-input" placeholder="请填写您的手机号码" id="telphone" name="telphone">
                 <div class="top-apply" onclick="post()">免费申请</div>
-                <p class="top-p1">声明：绘装以保护您的隐私为己任，</p>
+                <p class="top-p1">声明：佩奇以保护您的隐私为己任，</p>
                 <p class="top-p2">手机号仅作提供咨询服务，请放心填写。</p>
             </div>
             <script>
+
+
                 function post() {
+                    var content = document.getElementById('content').value;
+                    if (content == ''){
+                        alert("请输入你想知道的装修问题");
+                        return false;
+                    }
+
+                    var phone = document.getElementById('telphone').value;
+                    if(!(/^1[34578]\d{9}$/.test(phone))){
+                        alert("手机号码有误，请重填");
+                        return false;
+                    }
+
                     $.ajax({
                         type: "POST",//规定传输方式
                         url: "/userpost",//提交URL
@@ -49,6 +63,7 @@
                     });
                 }
             </script>
+
             <script src="{{url('/asset/js/consultation.js')}}"></script></div>
 
          {{--装修攻略--}}
@@ -145,15 +160,14 @@
                 </a>
             </div>
             <div class="index-case-list">
-
                 @if(!empty($head))
                 <a href="{{url('case/'.$head->id)}}" title="{{$head->name}}"> <div class="case-left">
-                        <img class="case-left-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$head->id])->first()->img_url)}}" alt="{{$head->name}}">
+                        <img class="case-left-img" src="@if(empty($casepic = \App\Model\CasesPic::where(['case_id'=>$head->id])->first())) @else {{$casepic->img_url}} @endif" alt="{{$head->name}}">
                         <div class="case-left-infor">
-                            <img class="case-left-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$head->id])->first()->img_url)}}" alt="{{$head->designer_name}}">
+                            <img class="case-left-avatar" src="@if(empty($casepic)) @else {{$casepic->img_url}}  @endif" alt="{{$head->designer_name}}">
                             <div class="case-left-role-infor">
-                                <p class="case-left-username">{{$head->designer_name}}</p>
-                                <p class="case-left-style">{{$head->house_type}}</p>
+                                <p class="case-left-username">@if(empty( $studio = \App\Model\Designer::find($item->designer_id))) 佩奇  @else {{$studio->name}}  @endif</p>
+                                <p class="case-left-style">@if(empty( $style = \App\Model\CaseStyle::find($item->style_id))) 无  @else {{$style->name}}  @endif·@if(empty( $housetype = \App\Model\CaseHouseStyle::find($item->housetype_id))) 无  @else {{$housetype->name}} @endif</p>
                             </div>
                         </div>
                     </div>
@@ -162,12 +176,12 @@
                 @foreach($more as $item)
                 <a href="{{url('case/'.$item->id)}}" title="{{$item->name}}"> </a><div class="case-right-list"><a href="{{url('case/'.$item->id)}}" title="{{$item->name}}">
                         <div class="case-right">
-                            <img class="case-right-img" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->name}}">
+                            <img class="case-right-img" src="@if(empty($casepic = \App\Model\CasesPic::where(['case_id'=>$head->id])->first())) @else {{$casepic->img_url}} @endif" alt="{{$item->name}}">
                             <div class="case-right-infor">
-                                <img class="case-right-avatar" src="{{url( \App\Model\CasesPic::where(['case_id'=>$item->id])->first()->img_url)}}" alt="{{$item->designer_name}}">
+                                <img class="case-right-avatar" src="@if(empty($casepic)) @else {{$casepic->img_url}}  @endif" alt="{{$item->designer_name}}">
                                 <div class="case-right-role-infor">
-                                    <p class="case-right-usernmae">{{$item->designer_name}}</p>
-                                    <p class="case-right-style">三室·田园</p>
+                                    <p class="case-right-usernmae">@if(empty( $studio = \App\Model\Designer::find($item->designer_id))) 佩奇  @else {{$studio->name}}  @endif</p>
+                                    <p class="case-right-style">@if(empty( $style = \App\Model\CaseStyle::find($item->style_id))) 无  @else {{$style->name}}  @endif·@if(empty( $housetype = \App\Model\CaseHouseStyle::find($item->housetype_id))) 无  @else {{$housetype->name}}  @endif</p>
                                 </div>
                             </div>
                         </div>
@@ -188,20 +202,21 @@
                     <div class="pm-menu role-select">请设计</div>
                 </div>
                 <div class="role-list">
+
                     @foreach(\App\Model\Designer::HeaderDesinger() as $item)
                     <div class="designer-div">
                         <div class="role-mask"></div>
                         <div class="role-infor">
-                            <div class="designer-cost">{{$item->price}}元/m²</div>
+                            <div class="designer-cost">@if(empty($price = \App\Model\DesignerPrice::find($item->price_id)))  @else {{$price->price}} @endif</div>
                             <div class="role-infor-div">
                                 <img class="role-small-avatar" src="{{$item->avatar}}" alt="{{$item->name}}">
                                 <p class="role-name">{{$item->name}}</p>
-                                <p class="role-atelier">{{$item->studio}}</p>
+                                <p class="role-atelier">@if(empty( $studio = \App\Model\Designer::find($item->designer_id))) 佩奇  @else {{$studio->name}} @endif</p>
                             </div>
                         </div>
                         <img class="designer-avatar" src="{{$item->avatar}}" alt="{{$item->name}}">
-                        <p class="designer-expert" title="{{$item->style}}">
-                            {{$item->style}}</p>
+                        <p class="designer-expert" title=" @if(empty( $style = \App\Model\DesignerStyle::find($item->style_id))) 无  @else {{$style->style}} @endif">
+                            @if(empty( $style = \App\Model\DesignerStyle::find($item->style_id))) 无  @else {{$style->style}}  @endif</p>
                         <p class="designer-txt" title="{{$item->dream}}">{{$item->dream}}</p>
                         <a href="{{url('/pm/'.$item->id)}}" title="{{$item->name}}个人主页">
                             <div class="role-go-detail">了解更多</div>

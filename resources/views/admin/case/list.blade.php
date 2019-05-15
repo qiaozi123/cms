@@ -50,7 +50,7 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->name}} </td>
                 <td> @if(empty($img_url = \App\Model\CasesPic::where(['case_id'=>$item->id])->first()))<a style="color: red" title="当前案例:{{$item->name}}"  onclick="x_admin_show('案例id:{{$item->id}}','/admin/case/list/lunbo/{{$item->id}}')" href="javascript:;">点击创建案例轮播</a>@else <img src="{{$img_url->img_url}}" style="width: 200px;">@endif</td>
-                <td>{{\App\Model\Designer::find($item->designer_id)->name}}</td>
+                <td>@if(empty($designer = \App\Model\Designer::find($item->designer_id)))没有绑定设计师 @else {{$designer->name}} @endif</td>
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">

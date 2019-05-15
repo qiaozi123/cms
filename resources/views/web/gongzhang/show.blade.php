@@ -78,11 +78,11 @@
     </style>
 <!-- 右边菜单栏 -->
 <div class="menu-right-div">
-    <a class="menu-right-option" target="_blank" href="http://www.huihome.cn/about" title="了解绘装" style="line-height: 18px; padding-top: 7px;"> 一分钟 <br>
-        了解绘装
+    <a class="menu-right-option" target="_blank" href="http://www.huihome.cn/about" title="了解佩奇" style="line-height: 18px; padding-top: 7px;"> 一分钟 <br>
+        了解佩奇
     </a>
     <div class="menu-right-option menu-right-option-erweima">
-        <img style="height: 34px; width: 34px; vertical-align: middle;" src="{{url('asset/images')}}/erweima.png" alt="扫描二维码"> <img class="menu-right-div-erweima-img" src="{{url('asset/images')}}/land_code.png" alt="绘装APP下载、绘装公众号">
+        <img style="height: 34px; width: 34px; vertical-align: middle;" src="{{url('asset/images')}}/erweima.png" alt="扫描二维码"> <img class="menu-right-div-erweima-img" src="{{url('asset/images')}}/land_code.png" alt="佩奇APP下载、佩奇公众号">
     </div>
     <div class="menu-right-option menu-right-option-kefu">
         <img style="height: 36px; width: 32px; vertical-align: middle;" src="{{url('asset/images')}}/kefu.png" alt="在线客服">
@@ -122,7 +122,7 @@
 <script type="text/javascript" src="{{url('asset/js')}}/vue-resource@1.3.4.js"></script>
 <link rel="stylesheet" href="{{url('asset/css')}}/login.css">
 <section id="VueLogin" class="layer-login-signin" style="display: none;"><div class="container"><div class="close">+</div> <div class="ivu-tabs"><div class="ivu-tabs-bar"><div class="ivu-tabs-nav-container"><div class="ivu-tabs-nav-wrap"><div class="ivu-tabs-nav-scroll"><div class="ivu-tabs-nav"><div class="ivu-tabs-ink-bar ivu-tabs-ink-bar-animated" style="display: block; width: 0px; transform: translate3d(0px, 0px, 0px);"></div> <div class="ivu-tabs-tab ivu-tabs-tab-active"><!----> 会员登录 <!----></div><div class="ivu-tabs-tab"><!----> 会员注册 <!----></div></div> <!----></div></div></div></div> <div class="ivu-tabs-content ivu-tabs-content-animated" style="transform: translateX(0%) translateZ(0px);"><div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow">
-                        <div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="{{url('asset/images')}}/vCode" alt="登录图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 下次自动登录</label> <div class="login-btn-submit">登录</div> <p class="line"></p> <p class="tip">第三方登录</p> <div class="thirdPart"><a href="javascript:void(0);" class="qq"></a> <a href="javascript:void(0);" class="weChat"></a></div></div> <div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="{{url('asset/images')}}/vCode" alt="注册图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 我已看过并同意<a href="http://www.huihome.cn/pm/5126.html" class="protocol">绘装用户协议条款</a></label> <div class="signin-btn-submit">注册</div></div></div></div> <!----></div></section>
+                        <div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="{{url('asset/images')}}/vCode" alt="登录图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 下次自动登录</label> <div class="login-btn-submit">登录</div> <p class="line"></p> <p class="tip">第三方登录</p> <div class="thirdPart"><a href="javascript:void(0);" class="qq"></a> <a href="javascript:void(0);" class="weChat"></a></div></div> <div class="ivu-tabs-tabpane"><div class="normal-input ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入手机号" class="ivu-input"> <!----></div> <div class="imgCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入图形验证码" class="ivu-input"> <!----></div> <img src="{{url('asset/images')}}/vCode" alt="注册图形验证码" class="imgVcode"></div> <div class="vCodeRow"><div class="normal-input vCode ivu-input-wrapper ivu-input-type"><!----> <!----> <i class="ivu-icon ivu-icon-load-c ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i> <input type="text" placeholder="请输入短信验证码" class="ivu-input"> <!----></div> <div class="getVcode">验证码</div></div> <label class="autoLogin ivu-checkbox-wrapper"><span class="ivu-checkbox"><span class="ivu-checkbox-inner"></span> <!----> <input type="checkbox" class="ivu-checkbox-input"></span> 我已看过并同意<a href="http://www.huihome.cn/pm/5126.html" class="protocol">佩奇用户协议条款</a></label> <div class="signin-btn-submit">注册</div></div></div></div> <!----></div></section>
 <script src="{{url('asset/js')}}/login.js"></script><div class="v-transfer-dom"><div class="ivu-modal-mask" style="display: none;"></div> <div class="ivu-modal-wrap ivu-modal-hidden"><div class="ivu-modal" style="width: 520px; display: none;"><div class="ivu-modal-content"><a class="ivu-modal-close"><i class="ivu-icon ivu-icon-ios-close-empty"></i></a> <div class="ivu-modal-header"><div class="ivu-modal-header-inner">注册成功</div></div> <div class="ivu-modal-body"><p>是否前往修改个人资料？</p></div> <div class="ivu-modal-footer"><button type="button" class="ivu-btn ivu-btn-text ivu-btn-large"><!----> <!----> <span>取消</span></button> <button type="button" class="ivu-btn ivu-btn-primary ivu-btn-large"><!----> <!----> <span>确定</span></button></div></div></div></div></div>
     <div class="content" >
     <div style="display: flex;">
@@ -152,8 +152,8 @@
                     <p class="role-title">个人资料</p>
                     <div class="role-infor-div">
                         <p>职位名称：{{$data->job}}</p>
-                        <p>所属工作室：{{\App\Model\Studio::find($data->studio_id)->name}}</p>
-                        <p>设计经验：{{\App\Model\DesignerTime::find($data->time_id)->times}}</p>
+                        <p>所属工作室：@if(empty($studio = \App\Model\Studio::find($data->studio_id))) @else {{$studio->name}} @endif</p>
+                        <p>设计经验：@if(empty($time = \App\Model\DesignerTime::find($data->time_id))) @else {{$time->times}} @endif </p>
                         <p>案例数：{{ \App\Model\Cases::where(['designer_id'=>$id])->get()->count()}}个</p>
                     </div>
                     <p class="role-txt">
@@ -170,7 +170,7 @@
         </div>
         <div style="margin-left: 10px;width: 330px;">
             <div class="QRcode">
-                <p>上绘装APP</p>
+                <p>上佩奇APP</p>
                 <p style="margin-top: 12px;">随时随地和达人一起聊装修</p>
                 <img src="{{url('asset/images')}}/apperweima.png">
             </div></div>
@@ -223,12 +223,12 @@
                 </div>
                 <div style="margin-left: 183px; display: flex;">
                     <div style="text-align: center;">
-                        <img src="{{url('asset/images')}}/apperweima.png" style="width: 142px; height: 142px;" alt="绘装APP下载">
-                        <p style="font-size: 20px; color: #000; margin-top: 16px;">绘装APP</p>
+                        <img src="{{url('asset/images')}}/apperweima.png" style="width: 142px; height: 142px;" alt="佩奇APP下载">
+                        <p style="font-size: 20px; color: #000; margin-top: 16px;">佩奇APP</p>
                     </div>
                     <div style="text-align: center; margin-left: 20px;">
-                        <img src="{{url('asset/images')}}/erweima2bankuan.png" style="width: 142px; height: 142px;" alt="绘装公众号">
-                        <p style="font-size: 20px; color: #000; margin-top: 16px;">绘装公众号</p>
+                        <img src="{{url('asset/images')}}/erweima2bankuan.png" style="width: 142px; height: 142px;" alt="佩奇公众号">
+                        <p style="font-size: 20px; color: #000; margin-top: 16px;">佩奇公众号</p>
                     </div>
                 </div>
             </div>

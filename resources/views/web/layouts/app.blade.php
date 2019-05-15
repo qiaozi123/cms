@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script charset="utf-8" type="text/javascript" src="{{url('asset/js')}}/pckit.js"></script>
-    <title>佩奇_长沙装修_长沙装修效果图-长沙装修平台</title>
-    <meta name="keywords" content="长沙装修，长沙装修效果图，长沙装修案例，长沙装修报价">
-    <meta name="description" content="佩奇为湖南首家互联网装修服务平台，致力于为长沙装修业主提供长沙装修案例，长沙装修报价，长沙装修效果图，为您提供优质长沙装修装饰服务；众多装修攻略为你选择长沙装修公司提供更多参考，帮您一站式解决装修问题。">
+    <title>@yield('title')</title>
+    <meta name="keywords" content="@yield('keywords')">
+    <meta name="description" content="@yield('description')">
     <link rel="icon" type="image/x-icon" href="http://www.huihome.cn/static/img/logo-ico.png">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/index.css">
     <link rel="stylesheet" type="text/css" href="{{url('asset/css')}}/swiper-3.4.2.min.css">
