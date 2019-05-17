@@ -55,7 +55,7 @@
                 <td>{{$item->created_at}}</td>
                 <td>{{$item->updated_at}}</td>
                 <td class="td-manage">
-                    <a title="用户积分充值"  onclick="x_admin_show('用户:{{$item->name}}  积分充值','/user/recharge?userid={{$item->id}}')" href="javascript:;">
+                    <a title="用户积分充值"  onclick="x_admin_show('修改文章','/admin/article/update/{{$item->id}}')" href="javascript:;">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
                     <a title="修改用户权限"  onclick="x_admin_show('修改用户:{{$item->name}}  权限','/role/user/update?userid={{$item->id}}')" href="javascript:;">

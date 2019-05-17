@@ -15,12 +15,12 @@ class AuthController extends Controller
 
     public function login()
     {
-//        $user = new User();
-//        $user->name = 'admin';
-//        $user->email = 'admin@qq.com';
-//        $user->password = Hash::make('admin');
-//        $user->save();
-        return view('admin.login');
+        $check = Auth::guard('admin')->check();
+        if ($check){
+            return redirect('/admin/home');
+        }else{
+            return view('admin.login');
+        }
     }
 
     public function dologin(Request $request)
@@ -53,8 +53,14 @@ class AuthController extends Controller
 
     public function index()
     {
-        $nav = Permission::where(['level'=>1,'status'=>0])->get();
-        return view('admin.index',compact('nav'));
+        $check = Auth::guard('admin')->check();
+        if ($check){
+            $nav = Permission::where(['level'=>1,'status'=>0])->get();
+            return view('admin.index',compact('nav'));
+        }else{
+            return redirect('/admin');
+        }
+
     }
 
     public function list()

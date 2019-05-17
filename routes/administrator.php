@@ -62,7 +62,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('lunbo/updatearticle', 'LunboController@updatearticle');
     Route::post('lunbo/updatearticle', 'LunboController@doupdatearticle');
 
-
     #后台图片上传路由
     Route::post('/upload/lunbo', 'LunboController@createpic');//轮播图片上传路由
     Route::post('/upload/avatar/', 'LunboController@createavatar');//文章图片上传路由
@@ -74,6 +73,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('article/team','ArticleController@team');
     Route::get('article/create','ArticleController@create');
     Route::post('article/create','ArticleController@docreate');
+    Route::get('article/update/{id}','ArticleController@update');
+    Route::post('article/update','ArticleController@doupdate');
     Route::get('article/list','ArticleController@list');
     Route::get('article/list/create','ArticleController@creteartcle');
     Route::post('article/list/create','ArticleController@docreteartcle');
@@ -107,7 +108,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin',], function () {
     Route::get('case/type/data/create/{id}','CaseController@typdatecreate');
     Route::post('case/type/data/create','CaseController@dotypdatecreate');
     Route::post('case/type/data/delete','CaseController@typdatedelete');
-
 
 
     #商户路由

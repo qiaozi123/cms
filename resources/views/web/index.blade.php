@@ -15,7 +15,7 @@
 
                     @foreach(\App\Model\Lunbo::get(1) as $item)
                     <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 860px;">
-                        <a href="{{$item->articleid}}" target="_blank" title="{{$item->name}}">
+                        <a href="{{$item->article_id}}" target="_blank" title="{{$item->name}}">
                             <img class="top-img" src="{{$item->img_url}}" alt="{{$item->name}}">
                         </a>
                     </div>

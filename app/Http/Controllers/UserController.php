@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Baojia;
 use App\Model\UserPost;
 use App\User;
 use Illuminate\Http\Request;
@@ -61,6 +62,40 @@ class UserController extends Controller
         }else{
             return response()->json(['msg'=>'提交失败','status'=>500]);
         }
+    }
+
+    public function baojia()
+    {
+        return view('web.baojia');
+    }
+
+    public function dobaojia(Request $request)
+    {
+         $loupan = $request->input('loupan');
+         $area = $request->input('area');
+         $shi= $request->input('shi');
+         $ting = $request->input('ting');
+         $chu = $request->input('chu');
+         $wei = $request->input('wei');
+         $yangtai = $request->input('yangtai');
+         $name = $request->input('name');
+         $telphone = $request->input('telphone');
+         $baojia = new Baojia();
+         $baojia->loupan =$loupan;
+         $baojia->area =$area;
+         $baojia->shi =$shi;
+         $baojia->ting =$ting;
+         $baojia->chu =$chu;
+         $baojia->wei =$wei;
+         $baojia->yangtai =$yangtai;
+         $baojia->name =$name;
+         $baojia->telphone =$telphone;
+         $bool = $baojia->save();
+         if ($bool){
+             return response()->json(['msg'=>'您的需求提交成功','status'=>200]);
+         }else{
+             return response()->json(['msg'=>'提交失败','status'=>500]);
+         }
     }
 
 

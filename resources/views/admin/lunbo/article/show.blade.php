@@ -21,15 +21,12 @@
         {{csrf_field()}}
         <div class="layui-form-item">
             <label for="username" class="layui-form-label">
-                <span class="x-red">*</span>文章
+                <span class="x-red">*</span>绑定链接
             </label>
             <input value="{{$id}}"  name="id" style="display: none">
             <div class="layui-input-inline">
-                <select  name="article_id" class="valid">
-                    @foreach(\App\Model\Article::all( ) as $item)
-                    <option value="{{$item->id}}">{{$item->title}}</option>
-                    @endforeach
-                </select>
+                <input type="text"  name="article_id" required="" lay-verify="required"
+                       autocomplete="off" class="layui-input">
             </div>
         </div>
         </tbody>
@@ -40,7 +37,7 @@
             <label for="L_repass" class="layui-form-label">
             </label>
             <button class="layui-btn" lay-filter="add" lay-submit="">
-                绑定文章
+                绑定链接
             </button>
         </div>
     </form>

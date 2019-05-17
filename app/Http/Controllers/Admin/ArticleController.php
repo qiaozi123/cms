@@ -36,6 +36,38 @@ class ArticleController extends Controller
         }
     }
 
+    public function update($id)
+    {
+        $data = Article::find($id);
+        $team = Article_team::all();
+        return view('admin.article.update',compact('data','team'));
+    }
+
+    public function doupdate(Request $request)
+    {
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $keyword = $request->input('keyword');
+        $author = $request->input('author');
+        $belongto = $request->input('belongto');
+        $avatar = $request->input('avatar');
+        $content = $request->input('content');
+        $article =  Article::find($id);
+        $article->title = $name;
+        $article->keyword = $keyword;
+        $article->author = $author;
+        $article->belongto = $belongto;
+        $article->avatar = $avatar;
+        $article->content= $content;
+        $bool = $article->save();
+        if ($bool){
+            return response()->json(['status'=>200,'msg'=>'修改成功']);
+        }else{
+            return response()->json(['status'=>500,'msg'=>'修改失败']);
+        }
+    }
+
+    git
     public function list()
     {
         $data = Article::all();

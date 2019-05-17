@@ -33,6 +33,10 @@ Route::post('user/login', 'AuthController@login');
 Route::post('user/regist', 'AuthController@regist');
 Route::post('user/logout', 'AuthController@logout');
 
+//报价路由
+Route::get('baojia', 'UserController@baojia');
+Route::post('baojia', 'UserController@dobaojia');
+
 
 
 
